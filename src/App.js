@@ -1,26 +1,26 @@
 import React from 'react';
-import About from './Components/about/About';
-import Contact from './Components/contact/Contact';
-import Experience from './Components/experience/Experience';
-import Footer from './Components/footer/Footer';
 import Header from './Components/header/Header';
 import Nav from './Components/nav/Nav';
-import Portfolio from './Components/portfolio/Portfolio';
+import About from './Components/about/About';
+import Experience from './Components/experience/Experience';
 import Services from './Components/services/Services';
+import Portfolio from './Components/portfolio/Portfolio';
 import Testimonials from './Components/testimonials/Testimonials';
+import Contact from './Components/contact/Contact';
+import Footer from './Components/footer/Footer';
 import './index.css';
 
 const App = () => (
   <>
-    <About />
-    <Contact />
-    <Experience />
-    <Footer />
     <Header />
     <Nav />
-    <Portfolio />
+    <About />
+    <Experience />
     <Services />
+    <Portfolio />
     <Testimonials />
+    <Contact />
+    <Footer />
   </>
 
 );
