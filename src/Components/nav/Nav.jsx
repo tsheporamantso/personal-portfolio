@@ -8,7 +8,7 @@ import './nav.css';
 
 const Nav = () => (
   <nav>
-    <a href="#home"><FaHome /></a>
+    <a href="#home" className="active"><FaHome /></a>
     <a href="#about"><FaRegUser /></a>
     <a href="#portfolio"><IoBookSharp /></a>
     <a href="#services"><RiServiceFill /></a>
