@@ -1,19 +1,23 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React from 'react';
+import React, { useState } from 'react';
 import { FaHome, FaRegUser } from 'react-icons/fa';
 import { IoBookSharp } from 'react-icons/io5';
 import { RiServiceFill } from 'react-icons/ri';
 import { TiMessages } from 'react-icons/ti';
 import './nav.css';
 
-const Nav = () => (
-  <nav>
-    <a href="#home" className="active"><FaHome /></a>
-    <a href="#about"><FaRegUser /></a>
-    <a href="#portfolio"><IoBookSharp /></a>
-    <a href="#services"><RiServiceFill /></a>
-    <a href="#contact"><TiMessages /></a>
-  </nav>
-);
+const Nav = () => {
+  const [activeNav, setActiveNav] = useState('home');
+
+  return (
+    <nav>
+      <a href="#home" onClick={() => { setActiveNav('#home'); }} className={activeNav === '#home' ? 'active' : ''}><FaHome /></a>
+      <a href="#about" onClick={() => { setActiveNav('#about'); }} className={activeNav === '#about' ? 'active' : ''}><FaRegUser /></a>
+      <a href="#portfolio" onClick={() => { setActiveNav('#portfolio'); }} className={activeNav === '#portfolio' ? 'active' : ''}><IoBookSharp /></a>
+      <a href="#services" onClick={() => { setActiveNav('#services'); }} className={activeNav === '#services' ? 'active' : ''}><RiServiceFill /></a>
+      <a href="#contact" onClick={() => { setActiveNav('#contact'); }} className={activeNav === '#contact' ? 'active' : ''}><TiMessages /></a>
+    </nav>
+  );
+};
 
 export default Nav;
