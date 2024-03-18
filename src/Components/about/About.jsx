@@ -2,7 +2,7 @@ import React from 'react';
 import { FaAward } from 'react-icons/fa';
 import { FiUsers } from 'react-icons/fi';
 import { LuFolderGit2 } from 'react-icons/lu';
-import ME from '../../assets/me.jpg';
+import ME from '../../assets/about-me.jpg';
 import './about.css';
 
 const About = () => (
