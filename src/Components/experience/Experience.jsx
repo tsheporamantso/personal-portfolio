@@ -13,28 +13,38 @@ const Experience = () => (
         <div className="experience__content">
           <article className="experience__details">
             <BsPatchCheckFill />
-            <h4>HTML5</h4>
-            <small className="text-light">Experienced</small>
+            <div>
+              <h4>HTML5</h4>
+              <small className="text-light">Experienced</small>
+            </div>
           </article>
           <article className="experience__details">
             <BsPatchCheckFill />
-            <h4>CSS3</h4>
-            <small className="text-light">Intermediate</small>
+            <div>
+              <h4>CSS3</h4>
+              <small className="text-light">Intermediate</small>
+            </div>
           </article>
           <article className="experience__details">
             <BsPatchCheckFill />
-            <h4>JavaScript</h4>
-            <small className="text-light">Experienced</small>
+            <div>
+              <h4>JavaScript</h4>
+              <small className="text-light">Experienced</small>
+            </div>
           </article>
           <article className="experience__details">
             <BsPatchCheckFill />
-            <h4>Bootstrap</h4>
-            <small className="text-light">Intermediate</small>
+            <div>
+              <h4>Bootstrap</h4>
+              <small className="text-light">Intermediate</small>
+            </div>
           </article>
           <article className="experience__details">
             <BsPatchCheckFill />
-            <h4>React/Redux</h4>
-            <small className="text-light">Experienced</small>
+            <div>
+              <h4>React/Redux</h4>
+              <small className="text-light">Experienced</small>
+            </div>
           </article>
         </div>
       </div>
@@ -44,23 +54,31 @@ const Experience = () => (
         <div className="experience__content">
           <article className="experience__details">
             <BsPatchCheckFill />
-            <h4>Ruby</h4>
-            <small className="text-light">Experienced</small>
+            <div>
+              <h4>Ruby</h4>
+              <small className="text-light">Experienced</small>
+            </div>
           </article>
           <article className="experience__details">
             <BsPatchCheckFill />
-            <h4>Ruby on Rails</h4>
-            <small className="text-light">Experienced</small>
+            <div>
+              <h4>Ruby on Rails</h4>
+              <small className="text-light">Experienced</small>
+            </div>
           </article>
           <article className="experience__details">
             <BsPatchCheckFill />
-            <h4>PostgreSQL</h4>
-            <small className="text-light">Intermediate</small>
+            <div>
+              <h4>PostgreSQL</h4>
+              <small className="text-light">Intermediate</small>
+            </div>
           </article>
           <article className="experience__details">
             <BsPatchCheckFill />
-            <h4>CLI</h4>
-            <small className="text-light">Intermediate</small>
+            <div>
+              <h4>CLI</h4>
+              <small className="text-light">Intermediate</small>
+            </div>
           </article>
         </div>
       </div>
