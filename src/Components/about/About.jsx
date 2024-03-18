@@ -15,30 +15,30 @@ const About = () => (
         <div className="about__me-image">
           <img src={ME} alt="about me" />
         </div>
+      </div>
 
-        <div className="about__content">
-          <div className="about__cards">
-            <article className="about-card">
-              <FaAward className="about-icon" />
-              <h5>Expereance</h5>
-              <small>2+ Years working experience</small>
-            </article>
+      <div className="about__content">
+        <div className="about__cards">
+          <article className="about__card">
+            <FaAward className="about__icon" />
+            <h5>Expereance</h5>
+            <small>2+ Years working experience</small>
+          </article>
 
-            <article className="about-card">
-              <FiUsers className="about-icon" />
-              <h5>Clients</h5>
-              <small>20 Clients Worldwide</small>
-            </article>
+          <article className="about__card">
+            <FiUsers className="about__icon" />
+            <h5>Clients</h5>
+            <small>20+ Clients Worldwide</small>
+          </article>
 
-            <article className="about-card">
-              <LuFolderGit2 className="about-icon" />
-              <h5>Projects</h5>
-              <small>30+ Completed projects</small>
-            </article>
-          </div>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, aspernatur.</p>
-          <a href="#contact" className="btn btn-primary">Let&apos;s Talk</a>
+          <article className="about__card">
+            <LuFolderGit2 className="about__icon" />
+            <h5>Projects</h5>
+            <small>30+ Completed projects</small>
+          </article>
         </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, aspernatur.</p>
+        <a href="#contact" className="btn btn-primary">Let&apos;s Talk</a>
       </div>
     </div>
   </section>
