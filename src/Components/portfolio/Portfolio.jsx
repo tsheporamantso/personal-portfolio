@@ -13,48 +13,60 @@ const Portfolio = () => (
           <img src={IMG1} alt="Space Travellors" />
         </div>
         <h3>Space Travellers&apos; Hub</h3>
-        <a href="https://github.com/tsheporamantso/Space-Travelers" className="btn">GitHub</a>
-        <a href="https://space-travellers-6soy.onrender.com/" className="btn btn-primary" target="_blank" rel="noreferrer">Live Demo</a>
+        <div className="portfolio__item-cta">
+          <a href="https://github.com/tsheporamantso/Space-Travelers" className="btn">GitHub</a>
+          <a href="https://space-travellers-6soy.onrender.com/" className="btn btn-primary" target="_blank" rel="noreferrer">Live Demo</a>
+        </div>
       </article>
       <article className="portfolio__item">
         <div className="portfolio__item-image">
           <img src={IMG1} alt="Space Travellors" />
         </div>
         <h3>Space Travellers&apos; Hub</h3>
-        <a href="https://github.com/tsheporamantso/Space-Travelers" className="btn">GitHub</a>
-        <a href="https://space-travellers-6soy.onrender.com/" className="btn btn-primary" target="_blank" rel="noreferrer">Live Demo</a>
+        <div className="portfolio__item-cta">
+          <a href="https://github.com/tsheporamantso/Space-Travelers" className="btn">GitHub</a>
+          <a href="https://space-travellers-6soy.onrender.com/" className="btn btn-primary" target="_blank" rel="noreferrer">Live Demo</a>
+        </div>
       </article>
       <article className="portfolio__item">
         <div className="portfolio__item-image">
           <img src={IMG1} alt="Space Travellors" />
         </div>
         <h3>Space Travellers&apos; Hub</h3>
-        <a href="https://github.com/tsheporamantso/Space-Travelers" className="btn">GitHub</a>
-        <a href="https://space-travellers-6soy.onrender.com/" className="btn btn-primary" target="_blank" rel="noreferrer">Live Demo</a>
+        <div className="portfolio__item-cta">
+          <a href="https://github.com/tsheporamantso/Space-Travelers" className="btn">GitHub</a>
+          <a href="https://space-travellers-6soy.onrender.com/" className="btn btn-primary" target="_blank" rel="noreferrer">Live Demo</a>
+        </div>
       </article>
       <article className="portfolio__item">
         <div className="portfolio__item-image">
           <img src={IMG1} alt="Space Travellors" />
         </div>
         <h3>Space Travellers&apos; Hub</h3>
-        <a href="https://github.com/tsheporamantso/Space-Travelers" className="btn">GitHub</a>
-        <a href="https://space-travellers-6soy.onrender.com/" className="btn btn-primary" target="_blank" rel="noreferrer">Live Demo</a>
+        <div className="portfolio__item-cta">
+          <a href="https://github.com/tsheporamantso/Space-Travelers" className="btn">GitHub</a>
+          <a href="https://space-travellers-6soy.onrender.com/" className="btn btn-primary" target="_blank" rel="noreferrer">Live Demo</a>
+        </div>
       </article>
       <article className="portfolio__item">
         <div className="portfolio__item-image">
           <img src={IMG1} alt="Space Travellors" />
         </div>
         <h3>Space Travellers&apos; Hub</h3>
-        <a href="https://github.com/tsheporamantso/Space-Travelers" className="btn">GitHub</a>
-        <a href="https://space-travellers-6soy.onrender.com/" className="btn btn-primary" target="_blank" rel="noreferrer">Live Demo</a>
+        <div className="portfolio__item-cta">
+          <a href="https://github.com/tsheporamantso/Space-Travelers" className="btn">GitHub</a>
+          <a href="https://space-travellers-6soy.onrender.com/" className="btn btn-primary" target="_blank" rel="noreferrer">Live Demo</a>
+        </div>
       </article>
       <article className="portfolio__item">
         <div className="portfolio__item-image">
           <img src={IMG1} alt="Space Travellors" />
         </div>
         <h3>Space Travellers&apos; Hub</h3>
-        <a href="https://github.com/tsheporamantso/Space-Travelers" className="btn">GitHub</a>
-        <a href="https://space-travellers-6soy.onrender.com/" className="btn btn-primary" target="_blank" rel="noreferrer">Live Demo</a>
+        <div className="portfolio__item-cta">
+          <a href="https://github.com/tsheporamantso/Space-Travelers" className="btn">GitHub</a>
+          <a href="https://space-travellers-6soy.onrender.com/" className="btn btn-primary" target="_blank" rel="noreferrer">Live Demo</a>
+        </div>
       </article>
     </div>
   </section>
