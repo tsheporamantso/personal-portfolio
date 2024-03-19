@@ -40,7 +40,7 @@ const data = [
 
 const Testimonials = () => (
   <section id="testimonials">
-    <h5>Review from peers and clients</h5>
+    <h5>Review from Peers</h5>
     <h2>Recommendations</h2>
 
     <Swiper className="container testimonials__container">
