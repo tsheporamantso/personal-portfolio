@@ -37,7 +37,13 @@ const About = () => (
             <small>30+ Completed projects</small>
           </article>
         </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, aspernatur.</p>
+        <p>
+          Certified Full-Stack Web Developer,
+          I can help you build a product, feature or website.
+          Look through some of my work and experience!
+          If you like what you see and have a project you need coded,
+          don&apos;t hesitate to contact me.
+        </p>
         <a href="#contact" className="btn btn-primary">Let&apos;s Talk</a>
       </div>
     </div>
