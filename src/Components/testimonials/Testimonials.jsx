@@ -14,7 +14,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import avatar1 from '../../assets/george.jpg';
 import avatar2 from '../../assets/May.jpg';
-import avatar3 from '../../assets/mandla.jpg';
+// import avatar3 from '../../assets/mandla.jpg';
 import avatar4 from '../../assets/spencer.jpg';
 
 const data = [
@@ -29,12 +29,6 @@ const data = [
     avatar: avatar2,
     name: 'May Pyone',
     review: 'Gladwin is an invaluable team member, demonstrating exceptional coding skills and a collaborative spirit. Throughout our challenging pair programming activities, Gladwin consistently showcased dedication and expertise, making him a standout colleague. I highly recommend working with Gladwin, as he not only delivers exceptional results but also enhances the team dynamic with his positive attitude. His contributions were pivotal to our projects success.',
-  },
-  {
-    id: 3,
-    avatar: avatar3,
-    name: 'Mandla Mpofu',
-    review: 'Tshepo is a brilliant professional who I would recommend in any environment. In my time working with him, I found him to be diligent with world class output.',
   },
   {
     id: 4,
