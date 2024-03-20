@@ -51,6 +51,14 @@ const Services = () => (
           <li>
             <span><VscCheck className="service__list-icon" /></span>
             <p>
+              Spent 300+ hours mastering algorithms, data structures,
+              and full-stack development while simultaneously developing
+              projects with Ruby, Rails, JavaScript, React, and Redux.
+            </p>
+          </li>
+          <li>
+            <span><VscCheck className="service__list-icon" /></span>
+            <p>
               Smart Budget - A mobile Ruby on Rails web application,
               that simplifies budget management by
               providing expense tracking, categorization, insights,
