@@ -1,5 +1,4 @@
 import React from 'react';
-import './testimonials.css';
 // import Swiper core and required modules
 import {
   Navigation, Pagination, Scrollbar, A11y,
@@ -9,9 +8,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
-import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import './testimonials.css';
 import avatar1 from '../../assets/george.jpg';
 import avatar2 from '../../assets/May.jpg';
 // import avatar3 from '../../assets/mandla.jpg';
@@ -43,20 +43,17 @@ const Testimonials = () => (
     <h5>Review from Peers</h5>
     <h2>Recommendations</h2>
 
-    <Swiper className="container testimonials__container">
+    <Swiper
+      className="container testimonials__container"
+      modules={[Navigation, Pagination, Scrollbar, A11y]}
+      spaceBetween={40}
+      slidesPerView={1}
+      navigation
+      pagination={{ clickable: true }}
+    >
       {
         data.map((item) => (
-          <SwiperSlide
-            className="testimonial"
-            key={item.id}
-             // install Swiper modules
-            modules={[Navigation, Pagination, Scrollbar, A11y]}
-            spaceBetween={40}
-            slidesPerView={1}
-            navigation
-            pagination={{ clickable: true }}
-            scrollbar={{ draggable: true }}
-          >
+          <SwiperSlide className="testimonial" key={item.id}>
             <div className="client__avatar">
               <img src={item.avatar} alt="" />
             </div>
