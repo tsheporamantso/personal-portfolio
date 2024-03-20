@@ -13,9 +13,9 @@
 }
 
 .experience__container > div:hover {
- background: transparent;
- border-color: var(--color-primary-variant);
- cursor: default;
+  background: transparent;
+  border-color: var(--color-primary-variant);
+  cursor: default;
 }
 
 .experience__container > div > h3 {
@@ -75,5 +75,3 @@
     padding: 2rem 1rem;
   }
 }
-
-

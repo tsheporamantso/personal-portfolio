@@ -6,16 +6,17 @@
 
 .about__me {
   display: grid;
-  place-items: center;	
+  place-items: center;
   width: 100%;
   aspect-ratio: 1/1;
   border-radius: 2rem;
-  background: linear-gradient(
-    45deg,
-    transparent,
-    var(--color-primary),
-    transparent
-  );
+  background:
+    linear-gradient(
+      45deg,
+      transparent,
+      var(--color-primary),
+      transparent
+    );
 }
 
 .about__me-image {
@@ -40,7 +41,7 @@
   border: 1px solid transparent;
   border-radius: 1rem;
   padding: 2rem;
-  text-align: center ;
+  text-align: center;
   transition: var(--transition);
 }
 
@@ -100,7 +101,7 @@
     width: 65%;
     margin: 0 auto 3rem;
   }
-  
+
   .about__cards {
     grid-template-columns: 1fr 1fr;
     gap: 1rem;

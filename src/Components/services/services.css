@@ -22,7 +22,7 @@
   background: var(--color-primary);
   padding: 2rem;
   border-radius: 0 0 2rem 2rem;
-  box-shadow: 0 2rem 1rem rgba(0 ,0 ,0 ,0.1);
+  box-shadow: 0 2rem 1rem rgba(0, 0, 0, 0.1);
 }
 
 .service__head > h3 {
@@ -63,7 +63,6 @@
   .service {
     height: auto;
   }
-
 }
 
 
@@ -76,5 +75,4 @@
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-
 }
