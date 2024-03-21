@@ -37,7 +37,7 @@ const Footer = () => (
       <a href="https://facebook.com/" target="_blank" rel="noreferrer">
         <FaFacebookF />
       </a>
-      <a href="https://twitter.com/home" target="_blank" rel="noreferrer">
+      <a href="https://twitter.com/ramgt001" target="_blank" rel="noreferrer">
         <FaTwitter />
       </a>
       <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
