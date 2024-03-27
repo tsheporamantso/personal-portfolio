@@ -30,7 +30,7 @@ const data = [
     title: 'StaySphere',
     github: 'https://github.com/tsheporamantso/final-capstone-react-front-end',
     demo: 'https://github.com/tsheporamantso/final-capstone-react-front-end',
-    description: 'Hotel bhooking CRUD application built with React and Redux for state management, and Ruby on Rails for the backend.',
+    description: 'Hotel booking CRUD application built with React and Redux for state management, and Ruby on Rails for the backend.',
   },
   {
     id: 3,
