@@ -23,7 +23,7 @@
     "react/react-in-jsx-scope": "off",
     "import/no-unresolved": "off",
     "no-shadow": "off",
-    "object-curly-newline": ["error", { "multiline": true }]
+    "object-curly-newline": "off"
   },
   "overrides": [
     {
