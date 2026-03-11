@@ -42,6 +42,13 @@ const Experience = () => (
           <article className="experience__details">
             <BsPatchCheckFill />
             <div>
+              <h4>TailwindCSS</h4>
+              <small className="text-light">Intermediate</small>
+            </div>
+          </article>
+          <article className="experience__details">
+            <BsPatchCheckFill />
+            <div>
               <h4>React/Redux</h4>
               <small className="text-light">Experienced</small>
             </div>
@@ -77,6 +84,27 @@ const Experience = () => (
             <BsPatchCheckFill />
             <div>
               <h4>CLI</h4>
+              <small className="text-light">Intermediate</small>
+            </div>
+          </article>
+          <article className="experience__details">
+            <BsPatchCheckFill />
+            <div>
+              <h4>NodeJS</h4>
+              <small className="text-light">Intermediate</small>
+            </div>
+          </article>
+          <article className="experience__details">
+            <BsPatchCheckFill />
+            <div>
+              <h4>ExpressJS</h4>
+              <small className="text-light">Intermediate</small>
+            </div>
+          </article>
+          <article className="experience__details">
+            <BsPatchCheckFill />
+            <div>
+              <h4>MongoDB</h4>
               <small className="text-light">Intermediate</small>
             </div>
           </article>
