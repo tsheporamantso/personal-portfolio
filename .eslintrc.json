@@ -15,8 +15,7 @@
   "extends": [
     "airbnb",
     "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "prettier"
+    "plugin:react-hooks/recommended"
   ],
   "plugins": ["react"],
   "rules": {
