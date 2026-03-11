@@ -75,7 +75,7 @@ const data = [
     demo: 'https://github.com/tsheporamantso/Chat-Alpha',
     description:
       'Ruby on Rails(MVC) Application that allows user to Create, Read, Update and Delete messages, styled wit bootstrap.',
-    stack: ['Ruby on Rails', 'Bootstrap', 'RSpec-Rails', 'PostgreSQL', 'ERB'],
+    stack: ['Ruby on Rails', 'Bootstrap', 'RSpec', 'PostgreSQL', 'ERB'],
   },
 ];
 

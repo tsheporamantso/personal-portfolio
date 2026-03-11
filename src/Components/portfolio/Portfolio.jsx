@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { IoCloseSharp } from 'react-icons/io5';
+import techIcons from '../../utils/techIcons';
 import './portfolio.css';
 import data from '../../utils/data';
 
@@ -63,7 +64,10 @@ const Portfolio = () => {
             <h3>Tech Stack</h3>
             <ul className="tech-stack">
               {selectedProject.stack?.map((tech) => (
-                <li key={tech}>{tech}</li>
+                <li className="tech-badge" key={tech}>
+                  {techIcons[tech]}
+                  <span>{tech}</span>
+                </li>
               ))}
             </ul>
 
