@@ -53,3 +53,67 @@
     gap: 1rem;
   }
 }
+
+/* ================= MODAL ================= */
+
+.portfolio__modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
+
+.portfolio__modal-content {
+  position: relative;
+  background: var(--color-bg);
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  font-size: 1.8rem;
+  color: var(--color-primary);
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.tech-stack {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.tech-stack li {
+  background: var(--color-primary);
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.5rem;
+  font-size: 0.7rem;
+  list-style: none;
+}
