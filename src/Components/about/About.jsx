@@ -38,13 +38,16 @@ const About = () => (
           </article>
         </div>
         <p>
-          Highly driven result-orientated Full-Stack Developer
-          with a deep passion for creating seamless and engaging web applications,
-          completed over 30 projects. Expertise in various technologies including
-          React, Redux, Ruby, PostgreSQL, Rails, HTML5, CSS3, and JavaScript.
-          Thrive in dynamic and fast-paced development environments.
+          Full Stack Web Developer with experience building responsive and
+          scalable web applications using JavaScript, React, Node.js, and Ruby
+          on Rails. Trained in modern development practices, including RESTful
+          API’s, authentication systems, and collaborative Git workflows.
+          Passionate about building clean user interfaces and reliable backend
+          systems while continuously improving technical skills.
         </p>
-        <a href="#contact" className="btn btn-primary">Let&apos;s Talk</a>
+        <a href="#contact" className="btn btn-primary">
+          Let&apos;s Talk
+        </a>
       </div>
     </div>
   </section>
