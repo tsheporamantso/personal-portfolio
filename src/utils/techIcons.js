@@ -16,6 +16,7 @@ import {
   SiRuby,
   SiJavascript,
   SiWebpack,
+  SiPostman,
 } from 'react-icons/si';
 
 const RoR = 'Ruby on Rails';
@@ -36,6 +37,7 @@ const techIcons = {
   Bootstrap: <FaBootstrap />,
   JavaScript: <SiJavascript />,
   Webpack: <SiWebpack />,
+  Postman: <SiPostman />,
 };
 
 export default techIcons;

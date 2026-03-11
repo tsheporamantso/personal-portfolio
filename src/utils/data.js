@@ -5,6 +5,7 @@ import IMG4 from '../assets/leaderboard.png';
 import IMG5 from '../assets/bookstore.png';
 import IMG6 from '../assets/mathmagician.png';
 import IMG7 from '../assets/chatalpha.png';
+// import IMG8 from '../assets/aliens.png';
 
 const data = [
   {
@@ -15,7 +16,7 @@ const data = [
     demo: 'https://space-travellers-6soy.onrender.com/',
     description:
       'Space Travellers Hub is a web application that allows users to book rockets and join selected missions to Mars. The app is built with React and Redux for state management. It also uses the SpaceX API to fetch data.',
-    stack: ['React', 'Redux', 'CSS3', 'Jest'],
+    stack: ['React', 'Redux', 'CSS3', 'Jest', 'Postman'],
   },
   {
     id: 2,
@@ -25,7 +26,15 @@ const data = [
     demo: 'https://github.com/tsheporamantso/final-capstone-react-front-end',
     description:
       'Hotel booking CRUD application built with React and Redux for state management, and Ruby on Rails for the backend.',
-    stack: ['React', 'Redux', 'CSS3', 'Ruby on Rails', 'RSpec', 'PostgreSQL'],
+    stack: [
+      'React',
+      'Redux',
+      'CSS3',
+      'Ruby on Rails',
+      'RSpec',
+      'PostgreSQL',
+      'Postman',
+    ],
   },
   {
     id: 3,
