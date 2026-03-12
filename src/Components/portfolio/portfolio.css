@@ -85,13 +85,16 @@
   position: absolute;
   top: 1rem;
   right: 1rem;
-
   background: transparent;
   border: none;
   cursor: pointer;
-
   font-size: 1.8rem;
   color: var(--color-primary);
+}
+
+.modal-close:hover {
+  transform: scale(1.1);
+  color: #4db5ff;
 }
 
 .modal-buttons {
