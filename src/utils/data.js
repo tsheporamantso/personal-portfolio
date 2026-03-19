@@ -5,21 +5,12 @@ import IMG4 from '../assets/leaderboard.png';
 import IMG5 from '../assets/bookstore.png';
 import IMG6 from '../assets/mathmagician.png';
 import IMG7 from '../assets/chatalpha.png';
-// import IMG8 from '../assets/aliens.png';
+import IMG8 from '../assets/wikipedia.png';
+import IMG9 from '../assets/aliens.png';
 
 const data = [
   {
     id: 1,
-    image: IMG1,
-    title: 'Space Travellers Hub',
-    github: 'https://github.com/tsheporamantso/Space-Travelers',
-    demo: 'https://space-travellers-6soy.onrender.com/',
-    description:
-      'Space Travellers Hub is a web application that allows users to book rockets and join selected missions to Mars. The app is built with React and Redux for state management. It also uses the SpaceX API to fetch data.',
-    stack: ['React', 'Redux', 'CSS3', 'Jest', 'Postman'],
-  },
-  {
-    id: 2,
     image: IMG2,
     title: 'StaySphere',
     github: 'https://github.com/tsheporamantso/final-capstone-react-front-end',
@@ -37,7 +28,51 @@ const data = [
     ],
   },
   {
+    id: 2,
+    image: IMG1,
+    title: 'Space Travellers Hub',
+    github: 'https://github.com/tsheporamantso/Space-Travelers',
+    demo: 'https://space-travellers-6soy.onrender.com/',
+    description:
+      'Space Travellers Hub is a web application that allows users to book rockets and join selected missions to Mars. The app is built with React and Redux for state management. It also uses the SpaceX API to fetch data.',
+    stack: ['React', 'Redux', 'CSS3', 'Jest', 'Postman'],
+  },
+
+  {
     id: 3,
+    image: IMG7,
+    title: 'Chat Alpha',
+    github: 'https://github.com/tsheporamantso/Chat-Alpha',
+    demo: 'https://github.com/tsheporamantso/Chat-Alpha',
+    description:
+      'Ruby on Rails(MVC) Application that allows user to Create, Read, Update and Delete messages, styled wit bootstrap.',
+    stack: ['Ruby on Rails', 'Bootstrap', 'RSpec', 'PostgreSQL', 'ERB'],
+  },
+
+  {
+    id: 4,
+    image: IMG8,
+    title: 'Wikipedia',
+    github: 'https://github.com/tsheporamantso/wikipedia',
+    demo: 'https://wikipedia-ten-indol.vercel.app/',
+    description:
+      'Search engine clone built with vanilla JavaScript and TypeScript using Wikipedia API endpoints.',
+    stack: ['JavaScript', 'TypeScript', 'HTML5', 'CSS3', 'Postman'],
+  },
+
+  {
+    id: 9,
+    image: IMG9,
+    title: 'Aliens Management',
+    github: 'https://github.com/tsheporamantso/aliens',
+    demo: 'https://github.com/tsheporamantso/aliens',
+    description:
+      'Restful API that collects Web Engineers name, favorite tech stack and employment status, built with NodeJS, ExpressJS , Non Relational Database MongoDB and Mongoose Modelling library.',
+    stack: ['NodeJS', 'ExpressJS', 'MongoDB', 'Mongoose'],
+  },
+
+  {
+    id: 5,
     image: IMG3,
     title: 'Recipe App',
     github: 'https://github.com/tsheporamantso/Recipe-App',
@@ -47,7 +82,7 @@ const data = [
     stack: ['Ruby on Rails', 'PostgreSQL', 'RSpec', 'ERB'],
   },
   {
-    id: 4,
+    id: 6,
     image: IMG4,
     title: 'Leader Board',
     github: 'https://github.com/tsheporamantso/budget-app',
@@ -57,7 +92,7 @@ const data = [
     stack: ['JavaScript', 'HTML5', 'CSS3', 'Webpack'],
   },
   {
-    id: 5,
+    id: 7,
     image: IMG5,
     title: 'Book Store',
     github: 'https://github.com/tsheporamantso/bookstore',
@@ -67,7 +102,7 @@ const data = [
     stack: ['React', 'Redux', 'CSS3'],
   },
   {
-    id: 6,
+    id: 8,
     image: IMG6,
     title: 'Math Magician',
     github: 'https://github.com/tsheporamantso/bookstore',
@@ -75,16 +110,6 @@ const data = [
     description:
       "Math Magician it's a Single Page Web Application for math enthusiasts that allows users to perform simple calculations. The app is built with React.",
     stack: ['React', 'CSS3'],
-  },
-  {
-    id: 7,
-    image: IMG7,
-    title: 'Chat Alpha',
-    github: 'https://github.com/tsheporamantso/Chat-Alpha',
-    demo: 'https://github.com/tsheporamantso/Chat-Alpha',
-    description:
-      'Ruby on Rails(MVC) Application that allows user to Create, Read, Update and Delete messages, styled wit bootstrap.',
-    stack: ['Ruby on Rails', 'Bootstrap', 'RSpec', 'PostgreSQL', 'ERB'],
   },
 ];
 

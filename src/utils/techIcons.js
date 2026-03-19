@@ -17,6 +17,9 @@ import {
   SiJavascript,
   SiWebpack,
   SiPostman,
+  SiExpress,
+  SiMongodb,
+  SiMongoose,
 } from 'react-icons/si';
 
 const RoR = 'Ruby on Rails';
@@ -38,6 +41,9 @@ const techIcons = {
   JavaScript: <SiJavascript />,
   Webpack: <SiWebpack />,
   Postman: <SiPostman />,
+  ExpressJS: <SiExpress />,
+  MongoDB: <SiMongodb />,
+  Mongoose: <SiMongoose />,
 };
 
 export default techIcons;
