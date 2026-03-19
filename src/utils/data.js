@@ -56,7 +56,7 @@ const data = [
     github: 'https://github.com/tsheporamantso/wikipedia',
     demo: 'https://wikipedia-ten-indol.vercel.app/',
     description:
-      'Search engine clone built with vanilla JavaScript and TypeScript using Wikipedia API endpoints.',
+      "Wikipedia Search It's a clone search engine application built with vanilla JavaScript,TypeScript.Integrated Wikipedia and Web Speech Recognition API's.",
     stack: ['JavaScript', 'TypeScript', 'HTML5', 'CSS3', 'Postman'],
   },
 
