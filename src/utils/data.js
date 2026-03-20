@@ -1,4 +1,3 @@
-import { randomUUID } from 'crypto';
 import IMG1 from '../assets/Space.png';
 import IMG2 from '../assets/staysphare.png';
 import IMG3 from '../assets/recipe.png';
@@ -11,7 +10,7 @@ import IMG9 from '../assets/aliens.png';
 
 const data = [
   {
-    id: randomUUID(),
+    id: crypto.randomUUID(),
     image: IMG2,
     title: 'StaySphere',
     github: 'https://github.com/tsheporamantso/final-capstone-react-front-end',
@@ -29,7 +28,7 @@ const data = [
     ],
   },
   {
-    id: randomUUID(),
+    id: crypto.randomUUID(),
     image: IMG1,
     title: 'Space Travellers Hub',
     github: 'https://github.com/tsheporamantso/Space-Travelers',
@@ -40,7 +39,7 @@ const data = [
   },
 
   {
-    id: randomUUID(),
+    id: crypto.randomUUID(),
     image: IMG7,
     title: 'Chat Alpha',
     github: 'https://github.com/tsheporamantso/Chat-Alpha',
@@ -51,7 +50,7 @@ const data = [
   },
 
   {
-    id: randomUUID(),
+    id: crypto.randomUUID(),
     image: IMG8,
     title: 'Wikipedia',
     github: 'https://github.com/tsheporamantso/wikipedia',
@@ -62,7 +61,7 @@ const data = [
   },
 
   {
-    id: randomUUID(),
+    id: crypto.randomUUID(),
     image: IMG9,
     title: 'Aliens Management',
     github: 'https://github.com/tsheporamantso/aliens',
@@ -73,7 +72,7 @@ const data = [
   },
 
   {
-    id: randomUUID(),
+    id: crypto.randomUUID(),
     image: IMG3,
     title: 'Recipe App',
     github: 'https://github.com/tsheporamantso/Recipe-App',
@@ -83,7 +82,7 @@ const data = [
     stack: ['Ruby on Rails', 'PostgreSQL', 'RSpec', 'ERB'],
   },
   {
-    id: randomUUID(),
+    id: crypto.randomUUID(),
     image: IMG4,
     title: 'Leader Board',
     github: 'https://github.com/tsheporamantso/budget-app',
@@ -93,7 +92,7 @@ const data = [
     stack: ['JavaScript', 'HTML5', 'CSS3', 'Webpack'],
   },
   {
-    id: randomUUID(),
+    id: crypto.randomUUID(),
     image: IMG5,
     title: 'Book Store',
     github: 'https://github.com/tsheporamantso/bookstore',
@@ -103,7 +102,7 @@ const data = [
     stack: ['React', 'Redux', 'CSS3'],
   },
   {
-    id: randomUUID(),
+    id: crypto.randomUUID(),
     image: IMG6,
     title: 'Math Magician',
     github: 'https://github.com/tsheporamantso/bookstore',
