@@ -1,3 +1,4 @@
+import { randomUUID } from 'crypto';
 import IMG1 from '../assets/Space.png';
 import IMG2 from '../assets/staysphare.png';
 import IMG3 from '../assets/recipe.png';
@@ -10,7 +11,7 @@ import IMG9 from '../assets/aliens.png';
 
 const data = [
   {
-    id: 1,
+    id: randomUUID(),
     image: IMG2,
     title: 'StaySphere',
     github: 'https://github.com/tsheporamantso/final-capstone-react-front-end',
@@ -28,7 +29,7 @@ const data = [
     ],
   },
   {
-    id: 2,
+    id: randomUUID(),
     image: IMG1,
     title: 'Space Travellers Hub',
     github: 'https://github.com/tsheporamantso/Space-Travelers',
@@ -39,7 +40,7 @@ const data = [
   },
 
   {
-    id: 3,
+    id: randomUUID(),
     image: IMG7,
     title: 'Chat Alpha',
     github: 'https://github.com/tsheporamantso/Chat-Alpha',
@@ -50,7 +51,7 @@ const data = [
   },
 
   {
-    id: 4,
+    id: randomUUID(),
     image: IMG8,
     title: 'Wikipedia',
     github: 'https://github.com/tsheporamantso/wikipedia',
@@ -61,7 +62,7 @@ const data = [
   },
 
   {
-    id: 9,
+    id: randomUUID(),
     image: IMG9,
     title: 'Aliens Management',
     github: 'https://github.com/tsheporamantso/aliens',
@@ -72,7 +73,7 @@ const data = [
   },
 
   {
-    id: 5,
+    id: randomUUID(),
     image: IMG3,
     title: 'Recipe App',
     github: 'https://github.com/tsheporamantso/Recipe-App',
@@ -82,7 +83,7 @@ const data = [
     stack: ['Ruby on Rails', 'PostgreSQL', 'RSpec', 'ERB'],
   },
   {
-    id: 6,
+    id: randomUUID(),
     image: IMG4,
     title: 'Leader Board',
     github: 'https://github.com/tsheporamantso/budget-app',
@@ -92,7 +93,7 @@ const data = [
     stack: ['JavaScript', 'HTML5', 'CSS3', 'Webpack'],
   },
   {
-    id: 7,
+    id: randomUUID(),
     image: IMG5,
     title: 'Book Store',
     github: 'https://github.com/tsheporamantso/bookstore',
@@ -102,7 +103,7 @@ const data = [
     stack: ['React', 'Redux', 'CSS3'],
   },
   {
-    id: 8,
+    id: randomUUID(),
     image: IMG6,
     title: 'Math Magician',
     github: 'https://github.com/tsheporamantso/bookstore',
