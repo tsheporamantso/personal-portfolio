@@ -1,8 +1,12 @@
-import { useState } from 'react';
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import { useState, useEffect } from 'react';
 import { IoCloseSharp } from 'react-icons/io5';
 import techIcons from '../../utils/techIcons';
 import './portfolio.css';
-import data from '../../utils/data';
+import fetchData from './fetchdata';
+
+const API_BASE = 'https://personal-portfolio-data.onrender.com';
+const BASE_URL = `${API_BASE}/api/v1/projects`;
 
 const truncateText = (text, maxLength) => {
   if (text.length <= maxLength) return text;
@@ -11,27 +15,74 @@ const truncateText = (text, maxLength) => {
 
 const Portfolio = () => {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [sortOrder, setSortOrder] = useState('-title');
+
+  useEffect(() => {
+    const getProjects = async () => {
+      setLoading(true);
+
+      const data = await fetchData(`${BASE_URL}?sort=${sortOrder}`);
+
+      if (data) {
+        setProjects(data.data);
+        setError(false);
+      } else {
+        setError(true);
+      }
+      setLoading(false);
+    };
+    getProjects();
+  }, [sortOrder]);
+
+  if (error) {
+    return <h2 className="error">Something went wrong...</h2>;
+  }
+
+  if (loading) {
+    return (
+      <section id="portfolio">
+        <h5>Fetching data...</h5>
+        <div className="loader" />
+      </section>
+    );
+  }
 
   return (
     <section id="portfolio">
       <h5>My Recent Work</h5>
       <h2>Portfolio</h2>
 
+      <div className="container">
+        <div className="portfolio__controls">
+          <label htmlFor="sort">Sort by Title:</label>
+          <div className="select-wrapper">
+            <select
+              id="sort"
+              value={sortOrder}
+              onChange={(e) => setSortOrder(e.target.value)}
+            >
+              <option value="-title">Desc</option>
+              <option value="title">Asc</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
       <div className="container portfolio__container">
-        {data.map((project) => (
-          <article key={project.id} className="portfolio__item">
+        {projects.map((project) => (
+          <article key={project._id} className="portfolio__item">
             <div className="portfolio__item-image">
-              <img src={project.image} alt={project.title} />
+              <img src={`${API_BASE}${project.image}`} alt={project.title} />
             </div>
-
             <h3>{project.title}</h3>
-
             {project.description && (
               <p style={{ marginBottom: '2rem' }}>
                 {truncateText(project.description, 70)}
               </p>
             )}
-
             <div className="portfolio__item-cta">
               <button
                 type="button"
@@ -52,7 +103,7 @@ const Portfolio = () => {
         <div className="portfolio__modal">
           <div className="portfolio__modal-content">
             <img
-              src={selectedProject.image}
+              src={`${API_BASE}${selectedProject.image}`}
               alt={selectedProject.title}
               className="modal-image"
             />
