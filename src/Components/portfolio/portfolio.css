@@ -79,7 +79,9 @@
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
-} /***
+}
+
+/***
 
 *! ===================== MEDIA QUERIES (MEDIUM DEVICES) ========================
 ***/
@@ -110,11 +112,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   background: rgba(0, 0, 0, 0.6);
   z-index: 999;
 }
