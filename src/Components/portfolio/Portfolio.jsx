@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { IoCloseSharp } from 'react-icons/io5';
 import techIcons from '../../utils/techIcons';
 import './portfolio.css';
-import data from '../../utils/data';
+// import data from '../../utils/data';
+import fetchData from '../../utils/fetchdata';
+
+const url = 'http://localhost:3000/api/v1/projects';
 
 const truncateText = (text, maxLength) => {
   if (text.length <= maxLength) return text;
@@ -11,6 +14,17 @@ const truncateText = (text, maxLength) => {
 
 const Portfolio = () => {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    const getProjects = async () => {
+      const data = await fetchData(url);
+      if (data) {
+        setProjects(data.data);
+      }
+    };
+    getProjects();
+  }, []);
 
   return (
     <section id="portfolio">
@@ -18,10 +32,13 @@ const Portfolio = () => {
       <h2>Portfolio</h2>
 
       <div className="container portfolio__container">
-        {data.map((project) => (
-          <article key={project.id} className="portfolio__item">
+        {projects.map((project) => (
+          <article key={project._id} className="portfolio__item">
             <div className="portfolio__item-image">
-              <img src={project.image} alt={project.title} />
+              <img
+                src={`http://localhost:3000${project.image}`}
+                alt={project.title}
+              />
             </div>
 
             <h3>{project.title}</h3>
@@ -52,7 +69,7 @@ const Portfolio = () => {
         <div className="portfolio__modal">
           <div className="portfolio__modal-content">
             <img
-              src={selectedProject.image}
+              src={`http://localhost:3000${selectedProject.image}`}
               alt={selectedProject.title}
               className="modal-image"
             />
