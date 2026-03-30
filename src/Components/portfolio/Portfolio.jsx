@@ -16,6 +16,7 @@ const Portfolio = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const getProjects = async () => {
@@ -23,11 +24,17 @@ const Portfolio = () => {
       const data = await fetchData(url);
       if (data) {
         setProjects(data.data);
+      } else {
+        setError(true);
       }
       setLoading(false);
     };
     getProjects();
   }, []);
+
+  if (error) {
+    return <h2 className="error">Something went wrong...</h2>;
+  }
 
   if (loading) {
     return (
