@@ -6,7 +6,8 @@ import './portfolio.css';
 // import data from '../../utils/data';
 import fetchData from './fetchdata';
 
-const BASE_URL = 'http://localhost:3000/api/v1/projects';
+const API_BASE = 'https://personal-portfolio-data.onrender.com';
+const BASE_URL = `${API_BASE}/api/v1/projects`;
 
 const truncateText = (text, maxLength) => {
   if (text.length <= maxLength) return text;
@@ -75,20 +76,14 @@ const Portfolio = () => {
         {projects.map((project) => (
           <article key={project._id} className="portfolio__item">
             <div className="portfolio__item-image">
-              <img
-                src={`http://localhost:3000${project.image}`}
-                alt={project.title}
-              />
+              <img src={`${API_BASE}${project.image}`} alt={project.title} />
             </div>
-
             <h3>{project.title}</h3>
-
             {project.description && (
               <p style={{ marginBottom: '2rem' }}>
                 {truncateText(project.description, 70)}
               </p>
             )}
-
             <div className="portfolio__item-cta">
               <button
                 type="button"
@@ -109,7 +104,7 @@ const Portfolio = () => {
         <div className="portfolio__modal">
           <div className="portfolio__modal-content">
             <img
-              src={`http://localhost:3000${selectedProject.image}`}
+              src={`${API_BASE}${selectedProject.image}`}
               alt={selectedProject.title}
               className="modal-image"
             />
