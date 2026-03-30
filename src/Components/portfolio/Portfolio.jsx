@@ -15,16 +15,28 @@ const truncateText = (text, maxLength) => {
 const Portfolio = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getProjects = async () => {
+      setLoading(true);
       const data = await fetchData(url);
       if (data) {
         setProjects(data.data);
       }
+      setLoading(false);
     };
     getProjects();
   }, []);
+
+  if (loading) {
+    return (
+      <section id="portfolio">
+        <h5>Fetching data...</h5>
+        <div className="loader" />
+      </section>
+    );
+  }
 
   return (
     <section id="portfolio">
