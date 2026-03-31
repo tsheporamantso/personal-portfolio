@@ -52,17 +52,24 @@ const About = () => {
             </article>
           </div>
           {/* 🔊 Speech buttons */}
-          <button
-            className="voice-btn"
-            type="button"
-            onClick={() => toggle(text)}
-          >
-            {buttonLabel}
-          </button>
+          <div className="speech-controls">
+            <button
+              className="voice-btn"
+              type="button"
+              onClick={() => toggle(text)}
+            >
+              {buttonLabel}
+            </button>
 
-          <button className="stop-btn" type="button" onClick={stop}>
-            ⛔ Stop
-          </button>
+            <button
+              className="stop-btn"
+              type="button"
+              onClick={stop}
+              disabled={!isSpeaking}
+            >
+              ⛔ Stop
+            </button>
+          </div>
 
           <p>{text}</p>
 
