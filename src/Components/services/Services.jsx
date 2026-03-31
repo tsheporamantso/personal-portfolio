@@ -54,7 +54,9 @@ const Services = () => {
             <ul className="services__list">
               {service.text.map((item, index) => (
                 <li key={index}>
-                  <VscCheck className="service__list-icon" />
+                  <span>
+                    <VscCheck className="service__list-icon" />
+                  </span>
                   <p>{item}</p>
                 </li>
               ))}
