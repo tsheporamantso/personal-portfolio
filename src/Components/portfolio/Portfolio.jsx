@@ -38,13 +38,13 @@ const Portfolio = () => {
   }, [sortOrder]);
 
   if (error) {
-    return <h2 className="error">Something went wrong...</h2>;
+    return <h2 className="error">Something went wrong loading projects...</h2>;
   }
 
   if (loading) {
     return (
       <section id="portfolio">
-        <h5>Fetching data...</h5>
+        <h5>Fetching projects...</h5>
         <div className="loader" />
       </section>
     );
