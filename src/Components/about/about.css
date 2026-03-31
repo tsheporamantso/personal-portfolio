@@ -10,13 +10,12 @@
   width: 100%;
   aspect-ratio: 1/1;
   border-radius: 2rem;
-  background:
-    linear-gradient(
-      45deg,
-      transparent,
-      var(--color-primary),
-      transparent
-    );
+  background: linear-gradient(
+    45deg,
+    transparent,
+    var(--color-primary),
+    transparent
+  );
 }
 
 .about__me-image {
@@ -69,6 +68,70 @@
 .about__content p {
   margin: 2rem 0 2.6rem;
   color: var(--color-light);
+}
+
+/* ===== SPEECH CONTROLS ===== */
+.speech-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+.voice-btn,
+.stop-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.3rem;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid transparent;
+  letter-spacing: 0.03em;
+}
+
+/* Primary action — matches your btn-primary feel */
+.voice-btn {
+  background: var(--color-primary);
+  color: var(--color-bg);
+  border-color: var(--color-primary);
+}
+
+.voice-btn:hover {
+  background: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* Secondary/destructive — ghost style with a red tint */
+.stop-btn {
+  background: transparent;
+  color: var(--color-light);
+  border-color: var(--color-bg-variant);
+}
+
+.stop-btn:hover {
+  border-color: #e06c75;
+  color: #e06c75;
+  background: rgba(224, 108, 117, 0.08);
+}
+
+/* Disabled state for stop when nothing is playing */
+.stop-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  border-color: transparent;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .speech-controls {
+    justify-content: center;
+  }
 }
 
 /***
