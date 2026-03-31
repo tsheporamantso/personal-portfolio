@@ -32,13 +32,14 @@ const useSpeech = () => {
       setIsSpeaking(false);
       setIsPaused(false);
     };
+
     speechSynthesis.speak(utterance);
   };
 
   const pause = () => {
     if (!speechSynthesis.speaking) return;
-    speechSynthesis.resume();
-    setIsPaused(false);
+    speechSynthesis.pause();
+    setIsPaused(true);
   };
 
   const resume = () => {
@@ -52,8 +53,9 @@ const useSpeech = () => {
     setIsSpeaking(false);
     setIsPaused(false);
   };
+
   const toggle = (text) => {
-    if (speechSynthesis.speaking && !speechSynthesis.pause) {
+    if (speechSynthesis.speaking && !speechSynthesis.paused) {
       pause();
     } else if (speechSynthesis.paused) {
       resume();
@@ -61,6 +63,7 @@ const useSpeech = () => {
       speak(text);
     }
   };
+
   return {
     speak,
     pause,
