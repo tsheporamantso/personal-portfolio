@@ -3,9 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { VscCheck } from 'react-icons/vsc';
 import './services.css';
 import fetchData from '../../utils/fetchdata';
-
-const API_BASE = 'https://personal-portfolio-data.onrender.com';
-const BASE_URL = `${API_BASE}/api/v1/services`;
+import API from '../../utils/api';
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -15,7 +13,7 @@ const Services = () => {
   useEffect(() => {
     const getServices = async () => {
       setLoading(true);
-      const data = await fetchData(BASE_URL);
+      const data = await fetchData(API.services);
       if (data) {
         setServices(data.services);
         setError(false);
