@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import './testimonials.css';
 import fetchData from '../../utils/fetchdata';
-import API from '../../utils/api';
+import API, { BASE_URL } from '../../utils/api';
 
 const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([]);
@@ -68,13 +68,13 @@ const Testimonials = () => {
                   rel="noopener noreferrer"
                 >
                   <img
-                    src={`${process.env.REACT_APP_API_URL}${testimonial.avatar}`}
+                    src={`${BASE_URL}${testimonial.avatar}`}
                     alt={testimonial.name}
                   />
                 </a>
               ) : (
                 <img
-                  src={`${process.env.REACT_APP_API_URL}${testimonial.avatar}`}
+                  src={`${BASE_URL}${testimonial.avatar}`}
                   alt={testimonial.name}
                 />
               )}

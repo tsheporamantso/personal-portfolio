@@ -4,9 +4,7 @@ import { IoCloseSharp } from 'react-icons/io5';
 import techIcons from '../../utils/techIcons';
 import './portfolio.css';
 import fetchData from '../../utils/fetchdata';
-
-const API_BASE = 'https://personal-portfolio-data.onrender.com';
-const BASE_URL = `${API_BASE}/api/v1/projects`;
+import API, { BASE_URL } from '../../utils/api';
 
 const truncateText = (text, maxLength) => {
   if (text.length <= maxLength) return text;
@@ -24,7 +22,7 @@ const Portfolio = () => {
     const getProjects = async () => {
       setLoading(true);
 
-      const data = await fetchData(`${BASE_URL}?sort=${sortOrder}`);
+      const data = await fetchData(`${API.projects}?sort=${sortOrder}`);
 
       if (data) {
         setProjects(data.data);
@@ -75,7 +73,7 @@ const Portfolio = () => {
         {projects.map((project) => (
           <article key={project._id} className="portfolio__item">
             <div className="portfolio__item-image">
-              <img src={`${API_BASE}${project.image}`} alt={project.title} />
+              <img src={`${BASE_URL}${project.image}`} alt={project.title} />
             </div>
             <h3>{project.title}</h3>
             {project.description && (
@@ -103,7 +101,7 @@ const Portfolio = () => {
         <div className="portfolio__modal">
           <div className="portfolio__modal-content">
             <img
-              src={`${API_BASE}${selectedProject.image}`}
+              src={`${BASE_URL}${selectedProject.image}`}
               alt={selectedProject.title}
               className="modal-image"
             />
