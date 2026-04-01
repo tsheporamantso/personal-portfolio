@@ -25,7 +25,7 @@
     "no-shadow": "off",
     "object-curly-newline": "off",
     "no-underscore-dangle": ["error", { "allow": ["_id"] }],
-    "multiline-ternary": ["error", "always-multiline"],
+    "multiline-ternary": ["off"],
     "operator-linebreak": [
       "error",
       "after",
