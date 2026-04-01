@@ -35,7 +35,7 @@ const Testimonials = () => {
   if (loading) {
     return (
       <section id="testimonials">
-        <h5>Fetching avatars...</h5>
+        <h5>Fetching testimonials...</h5>
         <div className="loader" />
       </section>
     );

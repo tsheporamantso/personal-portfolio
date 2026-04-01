@@ -31,7 +31,9 @@
       "after",
       { "overrides": { "?": "ignore", ":": "ignore" } }
     ],
-    "no-nested-ternary": "off"
+    "no-nested-ternary": "off",
+    "arrow-body-style": "off",
+    "react/jsx-one-expression-per-line": "off"
   },
   "overrides": [
     {

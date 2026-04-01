@@ -1,0 +1,39 @@
+.articles__container {
+  display: grid;
+  place-items: center;
+  margin-top: 2rem;
+}
+
+.article__card {
+  background: var(--color-bg-variant);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  max-width: 700px;
+  transition: var(--transition);
+}
+
+.article__card:hover {
+  background: transparent;
+  border: 1px solid var(--color-primary-variant);
+}
+
+.article__content h3 {
+  margin-bottom: 0.5rem;
+}
+
+.article__meta {
+  font-size: 0.85rem;
+  color: var(--color-light);
+  margin-bottom: 1rem;
+}
+
+.article__description {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.article__reflection {
+  font-size: 0.9rem;
+  color: var(--color-light);
+  margin-bottom: 1.5rem;
+}
