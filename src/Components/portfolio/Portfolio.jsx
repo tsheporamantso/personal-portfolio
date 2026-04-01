@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { IoCloseSharp } from 'react-icons/io5';
 import techIcons from '../../utils/techIcons';
 import './portfolio.css';
-import fetchData from './fetchdata';
+import fetchData from '../../utils/fetchdata';
 
 const API_BASE = 'https://personal-portfolio-data.onrender.com';
 const BASE_URL = `${API_BASE}/api/v1/projects`;
