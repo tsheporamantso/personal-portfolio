@@ -1,71 +1,93 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 // import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import './testimonials.css';
-import avatar1 from '../../assets/george.jpg';
-import avatar2 from '../../assets/May.jpg';
-// import avatar3 from '../../assets/mandla.jpg';
-import avatar4 from '../../assets/spencer.jpg';
+import fetchData from '../../utils/fetchdata';
 
-const data = [
-  {
-    id: 1,
-    avatar: avatar1,
-    name: 'Johannes Georg Hamman',
-    review:
-      'I am so glad I had the pleasure of working with Gladwin. His continuous positivity and outlook on life is a true inspiration. We collaborated well. Solved some challenges together and it made the project working with him, a breeze and also something we can all be proud of. He is highly professional and keeps to his word. He is determined and hard-working. I have no doubt he will continue to excel in his endeavors and I am sure he will be a true asset to his future employer.',
-    github: 'https://www.linkedin.com/in/georgehamman/',
-  },
-  {
-    id: 2,
-    avatar: avatar2,
-    name: 'May Pyone',
-    review:
-      'Gladwin is an invaluable team member, demonstrating exceptional coding skills and a collaborative spirit. Throughout our challenging pair programming activities, Gladwin consistently showcased dedication and expertise, making him a standout colleague. I highly recommend working with Gladwin, as he not only delivers exceptional results but also enhances the team dynamic with his positive attitude. His contributions were pivotal to our projects success.',
-  },
-  {
-    id: 4,
-    avatar: avatar4,
-    name: 'Okyere Spencer',
-    review:
-      'I had the pleasure of working with Tshepo during a pair programming session, and I can state with certainty that he is a superb developer. Tshepo excels at communication, teamwork, and leadership in addition to having great technical skills.I saw Tshepos outstanding ability to clearly convey difficult thoughts and concepts while we were both working together. He promoted a cooperative and productive environment by actively listening to recommendations and clearly outlining his justifications. The fact that Tshepo is open-minded and has strong people skills is a major factor in our productive collaboration.',
-  },
-];
+const API_BASE = 'https://personal-portfolio-data.onrender.com';
+const BASE_URL = `${API_BASE}/api/v1/testimonials`;
 
-const Testimonials = () => (
-  <section id="testimonials">
-    <h5>Review from Peers</h5>
-    <h2>Recommendations</h2>
+const Testimonials = () => {
+  const [testimonials, setTestimonials] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
-    <Swiper
-      className="container testimonials__container"
-      modules={[Navigation, Pagination, Scrollbar, A11y]}
-      spaceBetween={40}
-      slidesPerView={1}
-      navigation
-      pagination={{ clickable: true }}
-    >
-      {data.map((item) => (
-        <SwiperSlide className="testimonial" key={item.id}>
-          <div className="client__avatar">
-            <a href={item.github} target="_blank" rel="noopener noreferrer">
-              <img src={item.avatar} alt={item.name} />
-            </a>
-          </div>
-          <h5 className="client__name">{item.name}</h5>
-          <small className="client__review">{item.review}</small>
-        </SwiperSlide>
-      ))}
-    </Swiper>
-  </section>
-);
+  useEffect(() => {
+    const getTestimonials = async () => {
+      setLoading(true);
+      const data = await fetchData(BASE_URL);
+
+      if (data) {
+        setTestimonials(data.testimonial);
+        setError(false);
+      } else {
+        setError(true);
+      }
+      setLoading(false);
+    };
+    getTestimonials();
+  }, []);
+
+  if (loading) {
+    return (
+      <section id="testimonials">
+        <h5>Fetching avatars...</h5>
+        <div className="loader" />
+      </section>
+    );
+  }
+
+  if (error) {
+    return <h2 className="error">Something went wrong loading projects...</h2>;
+  }
+
+  return (
+    <section id="testimonials">
+      <h5>Review from Peers</h5>
+      <h2>Recommendations</h2>
+
+      <Swiper
+        className="container testimonials__container"
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        spaceBetween={40}
+        slidesPerView={1}
+        navigation
+        pagination={{ clickable: true }}
+      >
+        {testimonials.map((testimonial) => (
+          <SwiperSlide className="testimonial" key={testimonial._id}>
+            <div className="client__avatar">
+              {testimonial.links?.github ? (
+                <a
+                  href={testimonial?.links?.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={`${API_BASE}${testimonial.avatar}`}
+                    alt={testimonial.name}
+                  />
+                </a>
+              ) : (
+                <img
+                  src={`${API_BASE}${testimonial.avatar}`}
+                  alt={testimonial.name}
+                />
+              )}
+            </div>
+            <h5 className="client__name">{testimonial.name}</h5>
+            <small className="client__review">{testimonial.review}</small>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </section>
+  );
+};
 
 export default Testimonials;
