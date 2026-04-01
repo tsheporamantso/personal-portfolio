@@ -2,10 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import { VscCheck } from 'react-icons/vsc';
 import './services.css';
-import fetchServices from './fetchServices';
-
-const API_BASE = 'https://personal-portfolio-data.onrender.com';
-const BASE_URL = `${API_BASE}/api/v1/services`;
+import fetchData from '../../utils/fetchdata';
+import API from '../../utils/api';
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -15,7 +13,7 @@ const Services = () => {
   useEffect(() => {
     const getServices = async () => {
       setLoading(true);
-      const data = await fetchServices(BASE_URL);
+      const data = await fetchData(API.services);
       if (data) {
         setServices(data.services);
         setError(false);
@@ -54,7 +52,9 @@ const Services = () => {
             <ul className="services__list">
               {service.text.map((item, index) => (
                 <li key={index}>
-                  <VscCheck className="service__list-icon" />
+                  <span>
+                    <VscCheck className="service__list-icon" />
+                  </span>
                   <p>{item}</p>
                 </li>
               ))}
