@@ -8,6 +8,7 @@ import Portfolio from './Components/portfolio/Portfolio';
 import Testimonials from './Components/testimonials/Testimonials';
 import Contact from './Components/contact/Contact';
 import Footer from './Components/footer/Footer';
+import Articles from './Components/articles/Articles';
 import './index.css';
 
 const App = () => (
@@ -19,10 +20,10 @@ const App = () => (
     <Services />
     <Portfolio />
     <Testimonials />
+    <Articles />
     <Contact />
     <Footer />
   </>
-
 );
 
 export default App;
