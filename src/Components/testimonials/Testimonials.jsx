@@ -9,9 +9,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import './testimonials.css';
 import fetchData from '../../utils/fetchdata';
-
-const API_BASE = 'https://personal-portfolio-data.onrender.com';
-const BASE_URL = `${API_BASE}/api/v1/testimonials`;
+import API from '../../utils/api';
 
 const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([]);
@@ -21,7 +19,7 @@ const Testimonials = () => {
   useEffect(() => {
     const getTestimonials = async () => {
       setLoading(true);
-      const data = await fetchData(BASE_URL);
+      const data = await fetchData(API.testimonials);
 
       if (data) {
         setTestimonials(data.testimonial);
@@ -70,13 +68,13 @@ const Testimonials = () => {
                   rel="noopener noreferrer"
                 >
                   <img
-                    src={`${API_BASE}${testimonial.avatar}`}
+                    src={`${process.env.REACT_APP_API_URL}${testimonial.avatar}`}
                     alt={testimonial.name}
                   />
                 </a>
               ) : (
                 <img
-                  src={`${API_BASE}${testimonial.avatar}`}
+                  src={`${process.env.REACT_APP_API_URL}${testimonial.avatar}`}
                   alt={testimonial.name}
                 />
               )}
