@@ -1,4 +1,5 @@
 import React from 'react';
+import { ToastContainer } from 'react-toastify';
 import Header from './Components/header/Header';
 import Nav from './Components/nav/Nav';
 import About from './Components/about/About';
@@ -23,6 +24,7 @@ const App = () => (
     <Articles />
     <Contact />
     <Footer />
+    <ToastContainer position="bottom-right" autoClose={3000} theme="colored" />
   </>
 );
 
