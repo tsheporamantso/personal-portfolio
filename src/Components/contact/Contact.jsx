@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
 import { CiMail } from 'react-icons/ci';
 import { RiMessengerLine } from 'react-icons/ri';
 import { FaWhatsapp } from 'react-icons/fa6';
+import { toast } from 'react-toastify';
 import API from '../../utils/api';
 import './contact.css';
 
 const Contact = () => {
-  const [status, setStatus] = useState('');
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus('sending');
 
     const formData = {
       name: e.target.name.value,
       email: e.target.email.value,
       message: e.target.message.value,
     };
+
+    const toastId = toast.loading('Sending message...');
+
     try {
       const resp = await fetch(API.contacts, {
         method: 'POST',
@@ -28,13 +28,29 @@ const Contact = () => {
       const data = await resp.json();
 
       if (data.success) {
-        setStatus(data.msg);
+        toast.update(toastId, {
+          render: data.msg,
+          type: 'success',
+          isLoading: false,
+          autoClose: 3000,
+        });
+
         e.target.reset();
       } else {
-        setStatus('error');
+        toast.update(toastId, {
+          render: data.msg,
+          type: 'error',
+          isLoading: false,
+          autoClose: 3000,
+        });
       }
     } catch (error) {
-      setStatus('error');
+      toast.update(toastId, {
+        render: 'Server Error',
+        type: 'error',
+        isLoading: false,
+        autoClose: 3000,
+      });
     }
   };
 
@@ -103,7 +119,7 @@ const Contact = () => {
             required
           />
           <button type="submit" className="btn btn-primary">
-            {status === 'sending' ? 'Sending...' : 'Send Message'}
+            Send Message
           </button>
         </form>
       </div>
