@@ -26,7 +26,6 @@ const Contact = () => {
         body: JSON.stringify(formData),
       });
       const data = await resp.json();
-      console.log(data);
 
       if (data.success) {
         setStatus(data.msg);
