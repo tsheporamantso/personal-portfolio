@@ -4,6 +4,7 @@ const API = {
   testimonials: `${BASE_URL}/api/v1/testimonials`,
   projects: `${BASE_URL}/api/v1/projects`,
   services: `${BASE_URL}/api/v1/services`,
+  contacts: `${BASE_URL}/api/v1/contacts`,
 };
 
 export default API;
