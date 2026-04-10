@@ -5,6 +5,7 @@ const API = {
   projects: `${BASE_URL}/api/v1/projects`,
   services: `${BASE_URL}/api/v1/services`,
   contacts: `${BASE_URL}/api/v1/contacts`,
+  login: `${BASE_URL}/api/v1/auth/login`,
 };
 
 export default API;
