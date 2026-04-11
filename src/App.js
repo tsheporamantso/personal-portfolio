@@ -1,4 +1,7 @@
+/* eslint-disable react/jsx-wrap-multilines */
+/* eslint-disable react/prop-types */
 import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Header from './Components/header/Header';
 import Nav from './Components/nav/Nav';
@@ -10,9 +13,17 @@ import Testimonials from './Components/testimonials/Testimonials';
 import Contact from './Components/contact/Contact';
 import Footer from './Components/footer/Footer';
 import Articles from './Components/articles/Articles';
+import Login from './Components/login/login';
+import Dashboard from './Components/dashboard/dashboard';
 import './index.css';
 
-const App = () => (
+// Protects /dashboard — redirects to /login if no token
+const ProtectedRoute = ({ children }) => {
+  const token = localStorage.getItem('token');
+  return token ? children : <Navigate to="/login" replace />;
+};
+
+const PortfolioPage = () => (
   <>
     <Header />
     <Nav />
@@ -24,6 +35,23 @@ const App = () => (
     <Articles />
     <Contact />
     <Footer />
+  </>
+);
+
+const App = () => (
+  <>
+    <Routes>
+      <Route path="/" element={<PortfolioPage />} />
+      <Route path="/login" element={<Login />} />
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        }
+      />
+    </Routes>
     <ToastContainer position="bottom-right" autoClose={3000} theme="colored" />
   </>
 );
