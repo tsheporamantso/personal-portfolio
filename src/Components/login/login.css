@@ -1,6 +1,43 @@
-.form__container {
-  margin-top: 3rem;
+.container.login__container {
+  width: 60%;
+  display: grid;
+  grid-template-columns: 30% 58%;
+  gap: 12%;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+input {
+  width: 100%;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  background: transparent;
+  border: 2px solid var(--color-primary-variant);
+  resize: none;
+  color: var(--color-white);
+}
+
+.loader {
+  margin: 4rem auto;
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ccc;
+  border-top: 5px solid #4db5ff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .error {
-  color: red;
+  text-align: center;
+  margin: 2rem;
 }
