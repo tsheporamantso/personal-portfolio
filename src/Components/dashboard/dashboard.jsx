@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import API from '../../utils/api';
+import './dashboard.css';
 
 const Dashboard = () => {
   const [contacts, setContacts] = useState([]);
@@ -11,7 +12,6 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchContacts = async () => {
       const token = localStorage.getItem('token');
-
       if (!token) {
         navigate('/login');
         return;
@@ -19,9 +19,7 @@ const Dashboard = () => {
 
       try {
         const resp = await fetch(API.contacts, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+          headers: { Authorization: `Bearer ${token}` },
         });
 
         if (resp.status === 401) {
@@ -47,47 +45,48 @@ const Dashboard = () => {
     navigate('/login');
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+  if (loading) return <p className="dashboard__state">Loading...</p>;
+  if (error) {
+    return <p className="dashboard__state dashboard__state--error">{error}</p>;
+  }
 
   return (
-    <div className="dashboard">
-      <div className="dashboard__header">
-        <h1>Messages ({contacts.length})</h1>
+    <section id="dashboard">
+      <h5>Admin</h5>
+      <h2>Messages</h2>
+
+      <div className="container dashboard__container">
+        {contacts.length === 0 ? (
+          <p className="dashboard__state">No messages yet.</p>
+        ) : (
+          contacts.map((contact) => (
+            <article key={contact._id} className="dashboard__card">
+              <div className="dashboard__card-header">
+                <div className="dashboard__avatar">
+                  {contact.name.charAt(0).toUpperCase()}
+                </div>
+                <div>
+                  <h3>{contact.name}</h3>
+                  <span className="dashboard__meta">{contact.email}</span>
+                </div>
+                <span className="dashboard__date">
+                  {new Date(contact.createdAt).toLocaleDateString()}
+                </span>
+              </div>
+              <p className="dashboard__message">{contact.message}</p>
+            </article>
+          ))
+        )}
+
         <button
-          type="submit"
+          type="button"
           onClick={handleLogout}
-          className="btn btn-secondary"
+          className="btn btn-primary dashboard__logout"
         >
           Logout
         </button>
       </div>
-
-      {contacts.length === 0 ? (
-        <p>No messages yet.</p>
-      ) : (
-        <table className="dashboard__table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Message</th>
-              <th>Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {contacts.map((contact) => (
-              <tr key={contact._id}>
-                <td>{contact.name}</td>
-                <td>{contact.email}</td>
-                <td>{contact.message}</td>
-                <td>{new Date(contact.createdAt).toLocaleDateString()}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
-    </div>
+    </section>
   );
 };
 

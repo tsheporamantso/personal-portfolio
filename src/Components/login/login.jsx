@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { IoArrowBackOutline } from 'react-icons/io5';
 import API from '../../utils/api';
 import './login.css';
 
@@ -13,14 +14,12 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
 
     try {
-      setLoading(true);
       const resp = await fetch(API.login, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
 
@@ -35,13 +34,15 @@ const Login = () => {
       }
     } catch (err) {
       setError(err.message);
+      setLoading(false);
     }
   };
 
   if (loading) {
     return (
-      <section id="contacts">
-        <h5>Fetching contacts...</h5>
+      <section id="login">
+        <h5>Admin</h5>
+        <h2>Signing in...</h2>
         <div className="loader" />
       </section>
     );
@@ -49,31 +50,32 @@ const Login = () => {
 
   return (
     <section id="login">
-      <h5>Get in Touch</h5>
-      <div className="container login__container">
-        <form onSubmit={handleSubmit}>
-          <div className="container">
-            <input
-              type="email"
-              name="email"
-              placeholder="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <input
-              type="password"
-              name="password"
-              placeholder="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <button type="submit" className="btn btn-primary">
-              Login
-            </button>
-            {error && <p className="error">{error}</p>}
-          </div>
+      <h5>Admin</h5>
+      <h2>Login</h2>
+      <div className="login__container container">
+        <form className="login__form" onSubmit={handleSubmit}>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          {error && <p className="login__error">{error}</p>}
+          <button type="submit" className="btn btn-primary">
+            Login
+          </button>
+          {/* ✅ Back home link */}
+          <Link to="/" className="login__back">
+            <IoArrowBackOutline /> Back to Portfolio
+          </Link>
         </form>
       </div>
     </section>
