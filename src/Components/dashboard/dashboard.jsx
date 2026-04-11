@@ -1,5 +1,7 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { IoTrashOutline } from 'react-icons/io5';
 import API from '../../utils/api';
 import './dashboard.css';
 
@@ -7,6 +9,7 @@ const Dashboard = () => {
   const [contacts, setContacts] = useState([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
+  const [deletingId, setDeletingId] = useState(null); // ✅ tracks which card is deleting
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -40,6 +43,30 @@ const Dashboard = () => {
     fetchContacts();
   }, [navigate]);
 
+  const handleDelete = async (id) => {
+    const token = localStorage.getItem('token');
+    setDeletingId(id);
+
+    try {
+      const resp = await fetch(API.deleteContact(id), {
+        method: 'DELETE',
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      if (resp.ok) {
+        // ✅ remove from state without refetching
+        setContacts((prev) => prev.filter((c) => c._id !== id));
+      } else {
+        const data = await resp.json();
+        setError(data.msg);
+      }
+    } catch (err) {
+      setError('Failed to delete message');
+    } finally {
+      setDeletingId(null);
+    }
+  };
+
   const handleLogout = () => {
     localStorage.removeItem('token');
     navigate('/login');
@@ -53,7 +80,7 @@ const Dashboard = () => {
   return (
     <section id="dashboard">
       <h5>Admin</h5>
-      <h2>Messages</h2>
+      <h2>Messages ({contacts.length})</h2>
 
       <div className="container dashboard__container">
         {contacts.length === 0 ? (
@@ -72,6 +99,16 @@ const Dashboard = () => {
                 <span className="dashboard__date">
                   {new Date(contact.createdAt).toLocaleDateString()}
                 </span>
+                {/* ✅ Delete button */}
+                <button
+                  type="button"
+                  className="dashboard__delete"
+                  onClick={() => handleDelete(contact._id)}
+                  disabled={deletingId === contact._id}
+                  title="Delete message"
+                >
+                  <IoTrashOutline />
+                </button>
               </div>
               <p className="dashboard__message">{contact.message}</p>
             </article>
