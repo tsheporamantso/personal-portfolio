@@ -3,7 +3,7 @@ import { FaAward } from 'react-icons/fa';
 import { FiUsers } from 'react-icons/fi';
 import { LuFolderGit2 } from 'react-icons/lu';
 import useSpeech from '../../hooks/useSpeech';
-import ME from '../../assets/about-me.jpg';
+import ME from '../../assets/headshot.png';
 import './about.css';
 
 const About = () => {
