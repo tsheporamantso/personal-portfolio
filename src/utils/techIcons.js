@@ -48,7 +48,7 @@ const techIcons = {
   MongoDB: <SiMongodb />,
   Mongoose: <SiMongoose />,
   Swagger: <SiSwagger />,
-  CommitLink: <SiCommitlint />,
+  CommitLint: <SiCommitlint />,
   Render: <SiRender />,
 };
 
