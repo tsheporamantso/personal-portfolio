@@ -20,6 +20,9 @@ import {
   SiExpress,
   SiMongodb,
   SiMongoose,
+  SiSwagger,
+  SiCommitlint,
+  SiRender,
 } from 'react-icons/si';
 
 const RoR = 'Ruby on Rails';
@@ -44,6 +47,9 @@ const techIcons = {
   ExpressJS: <SiExpress />,
   MongoDB: <SiMongodb />,
   Mongoose: <SiMongoose />,
+  Swagger: <SiSwagger />,
+  CommitLint: <SiCommitlint />,
+  Render: <SiRender />,
 };
 
 export default techIcons;
