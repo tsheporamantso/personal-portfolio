@@ -10,7 +10,12 @@ const Dashboard = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
   const [deletingId, setDeletingId] = useState(null); // ✅ tracks which card is deleting
+  const [tips, setTips] = useState([]);
+  const [tipsLoading, setTipsLoading] = useState(true);
   const navigate = useNavigate();
+
+  // Total helper
+  const totalTips = tips.reduce((sum, t) => sum + (t.amount_total || 0), 0);
 
   useEffect(() => {
     const fetchContacts = async () => {
@@ -33,6 +38,12 @@ const Dashboard = () => {
 
         const data = await resp.json();
         setContacts(data.contacts);
+        const tipsResp = await fetch(API.tips, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        const tipsData = await tipsResp.json();
+        setTips(tipsData.tips || []);
+        setTipsLoading(false);
       } catch (err) {
         setError('Failed to load contacts');
       } finally {
@@ -114,6 +125,40 @@ const Dashboard = () => {
             </article>
           ))
         )}
+
+        <div className="dashboard__tips">
+          <h2>Tips 💸 ({tips.length})</h2>
+          <p className="dashboard__tips-total">
+            Total: R{(totalTips / 100).toFixed(2)}
+          </p>
+
+          {tipsLoading ? (
+            <p className="dashboard__state">Loading tips...</p>
+          ) : tips.length === 0 ? (
+            <p className="dashboard__state">
+              No tips yet — share your portfolio!
+            </p>
+          ) : (
+            tips.map((tip) => (
+              <article key={tip.id} className="dashboard__card">
+                <div className="dashboard__card-header">
+                  <div className="dashboard__avatar">
+                    {(tip.metadata?.name || 'A').charAt(0).toUpperCase()}
+                  </div>
+                  <div>
+                    <h3>{tip.metadata?.name || 'Anonymous'}</h3>
+                    <span className="dashboard__meta">
+                      R{(tip.amount_total / 100).toFixed(2)}
+                    </span>
+                  </div>
+                  <span className="dashboard__date">
+                    {new Date(tip.created * 1000).toLocaleDateString()}
+                  </span>
+                </div>
+              </article>
+            ))
+          )}
+        </div>
 
         <button
           type="button"

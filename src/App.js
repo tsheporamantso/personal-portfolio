@@ -15,6 +15,7 @@ import Footer from './Components/footer/Footer';
 import Articles from './Components/articles/Articles';
 import Login from './Components/login/login';
 import Dashboard from './Components/dashboard/dashboard';
+import TipJar from './Components/TipJar/TipJar';
 import './index.css';
 
 // Protects /dashboard — redirects to /login if no token
@@ -43,6 +44,7 @@ const App = () => (
     <Routes>
       <Route path="/" element={<PortfolioPage />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/tip" element={<TipJar />} />
       <Route
         path="/dashboard"
         element={
