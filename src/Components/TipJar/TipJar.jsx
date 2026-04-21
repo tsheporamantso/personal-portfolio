@@ -52,7 +52,7 @@ const TipJar = () => {
           <h5>Appreciate the work?</h5>
           <h2>Buy Me a Coffee</h2>
           <p className="tipjar__subtitle">
-            Fuel the late-night coding sessions — every sip counts. ☕
+            Fuel the late-night coding sessions — every sip counts.
           </p>
         </div>
 
