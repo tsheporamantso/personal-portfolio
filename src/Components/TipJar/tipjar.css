@@ -176,6 +176,7 @@
   width: 100%;
   padding: 1rem;
   font-size: 1rem;
+  border-radius: 0.5rem;
 }
 
 .tipjar__cta:disabled {

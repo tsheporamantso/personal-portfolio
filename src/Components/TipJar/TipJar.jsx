@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { FaCoffee, FaArrowLeft } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { FaCoffee } from 'react-icons/fa';
+import { IoArrowBackOutline } from 'react-icons/io5';
 import API from '../../utils/api';
 import './tipjar.css';
 
@@ -16,7 +17,6 @@ const TipJar = () => {
   const [name, setName] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const navigate = useNavigate();
 
   const handleTip = async () => {
     if (!selected) return;
@@ -43,15 +43,6 @@ const TipJar = () => {
 
   return (
     <section id="tipjar">
-      <button
-        type="button"
-        className="tipjar__back"
-        onClick={() => navigate(-1)}
-        title="Go back"
-      >
-        <FaArrowLeft /> Back
-      </button>
-
       <div className="tipjar__wrapper">
         {/* Header */}
         <div className="tipjar__header">
@@ -100,12 +91,16 @@ const TipJar = () => {
         {/* CTA */}
         <button
           type="button"
-          className="btn btn-primary tipjar__cta"
+          className="btn-primary tipjar__cta"
           onClick={handleTip}
           disabled={!selected || loading}
         >
           {loading ? 'Redirecting to payment...' : 'Send Tip 💸'}
         </button>
+
+        <Link to="/" className="login__back">
+          <IoArrowBackOutline /> Back to Portfolio
+        </Link>
 
         <p className="tipjar__secure">🔒 Secured by Stripe</p>
       </div>
