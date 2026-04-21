@@ -111,3 +111,9 @@
   opacity: 0.4;
   cursor: not-allowed;
 }
+
+.dashboard__tips {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
