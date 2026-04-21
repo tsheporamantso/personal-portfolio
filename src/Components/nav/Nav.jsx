@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState } from 'react';
-import { FaHome, FaRegUser } from 'react-icons/fa';
+import { FaHome, FaRegUser, FaCoffee } from 'react-icons/fa';
 import { IoBookSharp } from 'react-icons/io5';
 import { RiServiceFill, RiLoginBoxLine } from 'react-icons/ri';
 import { TiMessages } from 'react-icons/ti';
@@ -63,6 +63,14 @@ const Nav = () => {
       >
         <TiMessages />
       </a>
+      <Link
+        to="/tip"
+        title="Buy me a coffee"
+        className={activeNav === '/tip' ? 'active' : ''}
+        onClick={() => setActiveNav('/tip')}
+      >
+        <FaCoffee />
+      </Link>
       <li>
         <Link to="/login" title="Admin Login">
           <RiLoginBoxLine />
