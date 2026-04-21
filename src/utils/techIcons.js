@@ -4,6 +4,7 @@ import {
   FaHtml5,
   FaCss3,
   FaBootstrap,
+  FaStripe,
 } from 'react-icons/fa';
 import { BiLogoPostgresql } from 'react-icons/bi';
 import {
@@ -50,6 +51,7 @@ const techIcons = {
   Swagger: <SiSwagger />,
   CommitLint: <SiCommitlint />,
   Render: <SiRender />,
+  Stripe: <FaStripe />,
 };
 
 export default techIcons;
