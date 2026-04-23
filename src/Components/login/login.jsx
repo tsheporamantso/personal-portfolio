@@ -19,6 +19,7 @@ const Login = () => {
     try {
       const resp = await fetch(API.login, {
         method: 'POST',
+        credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
@@ -26,7 +27,6 @@ const Login = () => {
       const data = await resp.json();
 
       if (resp.ok) {
-        localStorage.setItem('token', data.token);
         navigate('/dashboard');
       } else {
         setError(data.msg);
