@@ -19,19 +19,12 @@ const Dashboard = () => {
 
   useEffect(() => {
     const fetchContacts = async () => {
-      const token = localStorage.getItem('token');
-      if (!token) {
-        navigate('/login');
-        return;
-      }
-
       try {
         const resp = await fetch(API.contacts, {
-          headers: { Authorization: `Bearer ${token}` },
+          credentials: 'include',
         });
 
         if (resp.status === 401) {
-          localStorage.removeItem('token');
           navigate('/login');
           return;
         }
@@ -39,7 +32,7 @@ const Dashboard = () => {
         const data = await resp.json();
         setContacts(data.contacts);
         const tipsResp = await fetch(API.tips, {
-          headers: { Authorization: `Bearer ${token}` },
+          credentials: 'include',
         });
         const tipsData = await tipsResp.json();
         setTips(tipsData.tips || []);
@@ -55,13 +48,12 @@ const Dashboard = () => {
   }, [navigate]);
 
   const handleDelete = async (id) => {
-    const token = localStorage.getItem('token');
     setDeletingId(id);
 
     try {
       const resp = await fetch(API.deleteContact(id), {
         method: 'DELETE',
-        headers: { Authorization: `Bearer ${token}` },
+        credentials: 'include',
       });
 
       if (resp.ok) {
@@ -78,8 +70,11 @@ const Dashboard = () => {
     }
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
+  const handleLogout = async () => {
+    await fetch(API.logout, {
+      method: 'GET',
+      credentials: 'include',
+    });
     navigate('/login');
   };
 
