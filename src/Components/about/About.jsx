@@ -9,7 +9,7 @@ import './about.css';
 
 const workExperience = [
   {
-    id: 1,
+    id: crypto.randomUUID(),
     company: 'Self-Employed',
     role: 'Full Stack Developer',
     duration: 'Aug 2022 – Present',
@@ -17,7 +17,7 @@ const workExperience = [
     logo: null,
   },
   {
-    id: 2,
+    id: crypto.randomUUID(),
     company: 'Molotovcocktail.tv',
     role: 'Full Stack Developer',
     duration: 'Nov 2024 – Apr 2025',
@@ -25,7 +25,7 @@ const workExperience = [
     logo: molotov,
   },
   {
-    id: 2,
+    id: crypto.randomUUID(),
     company: 'Harmony Gold Mine',
     role: 'Cost Accountant',
     duration: 'June 2010 – Aug 2017',
