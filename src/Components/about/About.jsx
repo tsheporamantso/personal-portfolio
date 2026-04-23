@@ -1,23 +1,47 @@
+/* eslint-disable indent */
 import React from 'react';
-import { FaAward } from 'react-icons/fa';
-import { FiUsers } from 'react-icons/fi';
-import { LuFolderGit2 } from 'react-icons/lu';
+import { MdWork } from 'react-icons/md';
 import useSpeech from '../../hooks/useSpeech';
 import ME from '../../assets/headshot.png';
+import harmony from '../../assets/harmony.png';
+import molotov from '../../assets/molotov.png';
 import './about.css';
+
+const workExperience = [
+  {
+    id: 1,
+    company: 'Self-Employed',
+    role: 'Full Stack Developer',
+    duration: 'Aug 2022 – Present',
+    emoji: '💻',
+    logo: null,
+  },
+  {
+    id: 2,
+    company: 'Molotovcocktail.tv',
+    role: 'Full Stack Developer',
+    duration: 'Nov 2024 – Apr 2025',
+    emoji: null,
+    logo: molotov,
+  },
+  {
+    id: 2,
+    company: 'Harmony Gold Mine',
+    role: 'Cost Accountant',
+    duration: 'June 2010 – Aug 2017',
+    emoji: null,
+    logo: harmony,
+  },
+];
 
 const About = () => {
   const { toggle, stop, isPaused, isSpeaking } = useSpeech();
   const text =
-    'Full Stack Web Developer with experience building responsive and scalable web applications using JavaScript, React, Node.js, and Ruby on Rails. Trained in modern development practices, including RESTful API’s, authentication systems, and collaborative Git workflows. Passionate about building clean user interfaces and reliable backend systems while continuously improving technical skills.';
+    'Full Stack Web Developer with experience building responsive and scalable web applications using JavaScript, React, Node.js, and Ruby on Rails. Trained in modern development practices, including RESTful APIs, authentication systems, and collaborative Git workflows. Passionate about building clean user interfaces and reliable backend systems while continuously improving technical skills.';
 
   let buttonLabel = '🔊 Listen';
-
-  if (isSpeaking && isPaused) {
-    buttonLabel = '▶️ Resume';
-  } else if (isSpeaking) {
-    buttonLabel = '⏸️ Pause';
-  }
+  if (isSpeaking && isPaused) buttonLabel = '▶️ Resume';
+  else if (isSpeaking) buttonLabel = '⏸️ Pause';
 
   return (
     <section id="about">
@@ -32,26 +56,7 @@ const About = () => {
         </div>
 
         <div className="about__content">
-          <div className="about__cards">
-            <article className="about__card">
-              <FaAward className="about__icon" />
-              <h5>Experience</h5>
-              <small>2+ Years Working</small>
-            </article>
-
-            <article className="about__card">
-              <FiUsers className="about__icon" />
-              <h5>Clients</h5>
-              <small>20+ Clients Worldwide</small>
-            </article>
-
-            <article className="about__card">
-              <LuFolderGit2 className="about__icon" />
-              <h5>Projects</h5>
-              <small>30+ Completed projects</small>
-            </article>
-          </div>
-          {/* 🔊 Speech buttons */}
+          {/* Speech controls */}
           <div className="speech-controls">
             <button
               className="voice-btn"
@@ -60,7 +65,6 @@ const About = () => {
             >
               {buttonLabel}
             </button>
-
             <button
               className="stop-btn"
               type="button"
@@ -72,6 +76,33 @@ const About = () => {
           </div>
 
           <p>{text}</p>
+
+          {/* Work Experience Card */}
+          <div className="work__card">
+            <div className="work__card-header">
+              <MdWork className="work__card-icon" />
+              <h5>Work Experience</h5>
+            </div>
+
+            <div className="work__list">
+              {workExperience.map((job) => (
+                <div className="work__item" key={job.id}>
+                  <div className="work__item-logo">
+                    {job.logo ? (
+                      <img src={job.logo} alt={job.company} />
+                    ) : (
+                      <span>{job.emoji}</span>
+                    )}
+                  </div>
+                  <div className="work__item-info">
+                    <strong>{job.company}</strong>
+                    <span className="work__item-role">{job.role}</span>
+                  </div>
+                  <span className="work__item-duration">{job.duration}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
           <a href="#contact" className="btn btn-primary">
             Let&apos;s Talk
