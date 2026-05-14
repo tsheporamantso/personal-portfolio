@@ -5,11 +5,17 @@ import API from '../../utils/api';
 import './login.css';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [user, setUser] = useState({
+    email: '',
+    password: '',
+  });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,7 +27,7 @@ const Login = () => {
         method: 'POST',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email: user.email, password: user.password }),
       });
 
       const data = await resp.json();
@@ -57,15 +63,17 @@ const Login = () => {
           <input
             type="email"
             placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={user.email}
+            name="email"
+            onChange={handleChange}
             required
           />
           <input
             type="password"
             placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={user.password}
+            name="password"
+            onChange={handleChange}
             required
           />
           {error && <p className="login__error">{error}</p>}
