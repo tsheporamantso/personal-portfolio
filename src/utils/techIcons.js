@@ -5,6 +5,7 @@ import {
   FaCss3,
   FaBootstrap,
   FaStripe,
+  FaDocker,
 } from 'react-icons/fa';
 import { BiLogoPostgresql } from 'react-icons/bi';
 import {
@@ -52,6 +53,7 @@ const techIcons = {
   CommitLint: <SiCommitlint />,
   Render: <SiRender />,
   Stripe: <FaStripe />,
+  Docker: <FaDocker />,
 };
 
 export default techIcons;
