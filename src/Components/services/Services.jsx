@@ -1,31 +1,36 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { VscCheck } from 'react-icons/vsc';
 import './services.css';
 import fetchData from '../../utils/fetchdata';
 import API from '../../utils/api';
+import { SERVICE_ITEMS, SET_LOADING, SET_ERROR } from './actions';
+import reducer from './reducer';
+
+const defaultState = {
+  services: [],
+  isLoading: true,
+  isError: false,
+};
 
 const Services = () => {
-  const [services, setServices] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const [state, dispatch] = useReducer(reducer, defaultState);
 
   useEffect(() => {
     const getServices = async () => {
-      setLoading(true);
+      dispatch({ type: SET_LOADING, payload: true });
+
       const data = await fetchData(API.services);
       if (data) {
-        setServices(data.services);
-        setError(false);
+        dispatch({ type: SERVICE_ITEMS, payload: { data } });
       } else {
-        setError(true);
+        dispatch({ type: SET_ERROR, payload: true });
       }
-      setLoading(false);
     };
     getServices();
   }, []);
 
-  if (loading) {
+  if (state.isLoading) {
     return (
       <section id="services">
         <h5>Fetching services...</h5>
@@ -34,7 +39,7 @@ const Services = () => {
     );
   }
 
-  if (error) {
+  if (state.isError) {
     return <h2 className="error">Something went wrong loading services...</h2>;
   }
 
@@ -44,7 +49,7 @@ const Services = () => {
       <h2>Services</h2>
 
       <div className="container services__container">
-        {services.map((service) => (
+        {state.services.map((service) => (
           <article key={service._id} className="service">
             <div className="service__head">
               <h3>{service.title}</h3>
