@@ -54,7 +54,7 @@ const App = () => (
         }
       />
     </Routes>
-    <ToastContainer position="bottom-right" autoClose={3000} theme="colored" />
+    <ToastContainer position="bottom-left" autoClose={3000} theme="colored" />
   </>
 );
 
