@@ -1,17 +1,41 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { IoArrowBackOutline } from 'react-icons/io5';
-import API from '../../utils/api';
+import { useMutation } from '@tanstack/react-query';
+import axios from 'axios';
 import './login.css';
+import { toast } from 'react-toastify';
+import API from '../../utils/api';
 
 const Login = () => {
   const [user, setUser] = useState({
     email: '',
     password: '',
   });
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
+
+  const { mutate: createUser, isPending } = useMutation({
+    mutationFn: async ({ email, password }) => {
+      await axios.post(
+        API.login,
+        { email, password },
+        {
+          withCredentials: true,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        },
+      );
+    },
+    onSuccess: () => {
+      toast.success('Logged in successfully.');
+      navigate('/dashboard');
+    },
+    onError: (error) => {
+      toast.error(error.response?.data?.msg || 'Something went wrong');
+    },
+  });
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -19,32 +43,10 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
-    setLoading(true);
-
-    try {
-      const resp = await fetch(API.login, {
-        method: 'POST',
-        credentials: 'include',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: user.email, password: user.password }),
-      });
-
-      const data = await resp.json();
-
-      if (resp.ok) {
-        navigate('/dashboard');
-      } else {
-        setError(data.msg);
-        setLoading(false);
-      }
-    } catch (err) {
-      setError(err.message);
-      setLoading(false);
-    }
+    createUser({ email: user.email, password: user.password });
   };
 
-  if (loading) {
+  if (isPending) {
     return (
       <section id="login">
         <h5>Admin</h5>
@@ -76,8 +78,11 @@ const Login = () => {
             onChange={handleChange}
             required
           />
-          {error && <p className="login__error">{error}</p>}
-          <button type="submit" className="btn btn-primary">
+          <button
+            type="submit"
+            className="btn btn-primary"
+            disabled={isPending}
+          >
             Login
           </button>
           {/* ✅ Back home link */}
