@@ -190,6 +190,7 @@
   from {
     transform: translateX(-100%);
   }
+
   to {
     transform: translateX(200%);
   }
@@ -206,12 +207,13 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.6) 50%,
-    transparent 100%
-  );
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.6) 50%,
+      transparent 100%
+    );
   animation: shimmer 1.6s ease-in-out infinite;
 }
 
@@ -227,12 +229,13 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.6) 50%,
-    transparent 100%
-  );
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.6) 50%,
+      transparent 100%
+    );
   animation: shimmer 1.6s ease-in-out infinite;
 }
 
