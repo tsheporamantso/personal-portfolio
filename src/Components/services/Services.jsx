@@ -6,7 +6,7 @@ import fetchData from '../../utils/fetchdata';
 import API from '../../utils/api';
 import { SERVICE_ITEMS, SET_LOADING, SET_ERROR } from './actions';
 import reducer from './reducer';
-import SkeletonCard from './SkeletonCard';
+import ServicesSkeletonCard from './ServicesSkeletonCard';
 
 const defaultState = {
   services: [],
@@ -38,7 +38,7 @@ const Services = () => {
         <h2>Services</h2>
         <div className="container services__container">
           {[...Array(3)].map((_, i) => (
-            <SkeletonCard key={i} />
+            <ServicesSkeletonCard key={i} />
           ))}
         </div>
       </section>

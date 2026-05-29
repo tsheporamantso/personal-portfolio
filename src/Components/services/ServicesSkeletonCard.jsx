@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 
-const SkeletonCard = () => {
+const ServicesSkeletonCard = () => {
   return (
     <article className="service skeleton-card">
       <div className="service__head">
@@ -19,4 +19,4 @@ const SkeletonCard = () => {
   );
 };
 
-export default SkeletonCard;
+export default ServicesSkeletonCard;

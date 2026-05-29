@@ -6,7 +6,7 @@ import techIcons from '../../utils/techIcons';
 import './portfolio.css';
 import fetchData from '../../utils/fetchdata';
 import API, { BASE_URL } from '../../utils/api';
-import SkeletonCard from './SkeletonCard';
+import SkeletonCard from './PortfolioSkeletonCard';
 
 const truncateText = (text, maxLength) => {
   if (text.length <= maxLength) return text;
