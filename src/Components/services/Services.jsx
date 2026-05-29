@@ -6,6 +6,7 @@ import fetchData from '../../utils/fetchdata';
 import API from '../../utils/api';
 import { SERVICE_ITEMS, SET_LOADING, SET_ERROR } from './actions';
 import reducer from './reducer';
+import SkeletonCard from './SkeletonCard';
 
 const defaultState = {
   services: [],
@@ -33,8 +34,13 @@ const Services = () => {
   if (state.isLoading) {
     return (
       <section id="services">
-        <h5>Fetching services...</h5>
-        <div className="loader" />
+        <h5>What I offer</h5>
+        <h2>Services</h2>
+        <div className="container services__container">
+          {[...Array(3)].map((_, i) => (
+            <SkeletonCard key={i} />
+          ))}
+        </div>
       </section>
     );
   }
