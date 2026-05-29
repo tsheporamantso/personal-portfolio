@@ -1,10 +1,12 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react/no-array-index-key */
 import { useState, useEffect } from 'react';
 import { IoCloseSharp } from 'react-icons/io5';
 import techIcons from '../../utils/techIcons';
 import './portfolio.css';
 import fetchData from '../../utils/fetchdata';
 import API, { BASE_URL } from '../../utils/api';
+import SkeletonCard from './PortfolioSkeletonCard';
 
 const truncateText = (text, maxLength) => {
   if (text.length <= maxLength) return text;
@@ -42,8 +44,13 @@ const Portfolio = () => {
   if (loading) {
     return (
       <section id="portfolio">
-        <h5>Fetching projects...</h5>
-        <div className="loader" />
+        <h5>My Recent Work</h5>
+        <h2>Portfolio</h2>
+        <div className="container portfolio__container">
+          {[...Array(6)].map((_, i) => (
+            <SkeletonCard key={i} />
+          ))}
+        </div>
       </section>
     );
   }

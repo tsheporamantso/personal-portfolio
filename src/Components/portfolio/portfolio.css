@@ -183,3 +183,81 @@
 .tech-badge svg {
   font-size: 1rem;
 }
+
+/* ================= SKELETON ================= */
+
+@keyframes shimmer {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(200%);
+  }
+}
+
+.skeleton {
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.6) 50%,
+      transparent 100%
+    );
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+.skeleton-card .portfolio__item-image {
+  background-color: #e0e0e0;
+  height: 200px; /* match whatever height your real images render at */
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skeleton-card .portfolio__item-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.6) 50%,
+      transparent 100%
+    );
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+.skeleton--title {
+  height: 1.2rem;
+  width: 65%;
+  margin: 1rem auto 0.75rem;
+}
+
+.skeleton--text {
+  height: 13px;
+  width: 90%;
+  margin: 0 auto 0.5rem;
+}
+
+.skeleton--text-short {
+  width: 60%;
+}
+
+.skeleton--btn {
+  height: 2.4rem;
+  width: 110px;
+  border-radius: 6px;
+  margin: 0 auto;
+}
