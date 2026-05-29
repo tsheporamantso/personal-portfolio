@@ -8,7 +8,7 @@ const SkeletonCard = () => {
         <div className="skeleton skeleton--heading" />
       </div>
       <ul className="services__list">
-        {[...Array(3)].map((_, i) => (
+        {[...Array(4)].map((_, i) => (
           <li key={i}>
             <span className="skeleton skeleton--icon" />
             <div className="skeleton skeleton--text" />
