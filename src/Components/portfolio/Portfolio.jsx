@@ -1,10 +1,12 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/no-array-index-key */
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { IoCloseSharp } from 'react-icons/io5';
-import techIcons from '../../utils/techIcons';
 import './portfolio.css';
-import fetchData from '../../utils/fetchdata';
+import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
+// import fetchData from '../../utils/fetchdata';
+import techIcons from '../../utils/techIcons';
 import API, { BASE_URL } from '../../utils/api';
 import SkeletonCard from './PortfolioSkeletonCard';
 
@@ -15,33 +17,41 @@ const truncateText = (text, maxLength) => {
 
 const Portfolio = () => {
   const [selectedProject, setSelectedProject] = useState(null);
-  const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  // const [projects, setProjects] = useState([]);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState(false);
   const [sortOrder, setSortOrder] = useState('-title');
 
-  useEffect(() => {
-    const getProjects = async () => {
-      setLoading(true);
+  const {
+    data: projects,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ['projects'],
+    queryFn: async () => {
+      const { data } = await axios.get(`${API.projects}?sort=${sortOrder}`);
+      return data;
+    },
+  });
 
-      const data = await fetchData(`${API.projects}?sort=${sortOrder}`);
+  // useEffect(() => {
+  //   const getProjects = async () => {
+  //     setLoading(true);
 
-      if (data) {
-        setProjects(data.data);
-        setError(false);
-      } else {
-        setError(true);
-      }
-      setLoading(false);
-    };
-    getProjects();
-  }, [sortOrder]);
+  //     const data = await fetchData(`${API.projects}?sort=${sortOrder}`);
 
-  if (error) {
-    return <h2 className="error">Something went wrong loading projects...</h2>;
-  }
+  //     if (data) {
+  //       setProjects(data.data);
+  //       setError(false);
+  //     } else {
+  //       setError(true);
+  //     }
+  //     setLoading(false);
+  //   };
+  //   getProjects();
+  // }, [sortOrder]);
 
-  if (loading) {
+  if (isLoading) {
     return (
       <section id="portfolio">
         <h5>My Recent Work</h5>
@@ -53,6 +63,10 @@ const Portfolio = () => {
         </div>
       </section>
     );
+  }
+
+  if (error) {
+    return <h2 className="error">{error.message}</h2>;
   }
 
   return (
