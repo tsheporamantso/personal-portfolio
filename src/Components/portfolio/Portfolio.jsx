@@ -5,7 +5,6 @@ import { IoCloseSharp } from 'react-icons/io5';
 import './portfolio.css';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
-// import fetchData from '../../utils/fetchdata';
 import techIcons from '../../utils/techIcons';
 import API, { BASE_URL } from '../../utils/api';
 import SkeletonCard from './PortfolioSkeletonCard';
@@ -17,9 +16,6 @@ const truncateText = (text, maxLength) => {
 
 const Portfolio = () => {
   const [selectedProject, setSelectedProject] = useState(null);
-  // const [projects, setProjects] = useState([]);
-  // const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState(false);
   const [sortOrder, setSortOrder] = useState('-title');
 
   const {
@@ -33,23 +29,6 @@ const Portfolio = () => {
       return data;
     },
   });
-
-  // useEffect(() => {
-  //   const getProjects = async () => {
-  //     setLoading(true);
-
-  //     const data = await fetchData(`${API.projects}?sort=${sortOrder}`);
-
-  //     if (data) {
-  //       setProjects(data.data);
-  //       setError(false);
-  //     } else {
-  //       setError(true);
-  //     }
-  //     setLoading(false);
-  //   };
-  //   getProjects();
-  // }, [sortOrder]);
 
   if (isLoading) {
     return (
@@ -91,7 +70,7 @@ const Portfolio = () => {
       </div>
 
       <div className="container portfolio__container">
-        {projects.map((project) => (
+        {projects.data.map((project) => (
           <article key={project._id} className="portfolio__item">
             <div className="portfolio__item-image">
               <img src={`${BASE_URL}${project.image}`} alt={project.title} />
