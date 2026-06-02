@@ -23,7 +23,7 @@ const Portfolio = () => {
     isLoading,
     error,
   } = useQuery({
-    queryKey: ['projects'],
+    queryKey: ['projects', sortOrder],
     queryFn: async () => {
       const { data } = await axios.get(`${API.projects}?sort=${sortOrder}`);
       return data;
@@ -61,6 +61,7 @@ const Portfolio = () => {
               id="sort"
               value={sortOrder}
               onChange={(e) => setSortOrder(e.target.value)}
+              disabled={isLoading}
             >
               <option value="-title">Desc</option>
               <option value="title">Asc</option>
