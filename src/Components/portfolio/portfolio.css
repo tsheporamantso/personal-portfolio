@@ -197,7 +197,7 @@
 }
 
 .skeleton {
-  background-color: #e0e0e0;
+  background-color: #222;
   border-radius: 4px;
   overflow: hidden;
   position: relative;
@@ -218,7 +218,7 @@
 }
 
 .skeleton-card .portfolio__item-image {
-  background-color: #e0e0e0;
+  background-color: #222;
   height: 200px; /* match whatever height your real images render at */
   border-radius: 4px;
   overflow: hidden;

@@ -50,6 +50,8 @@
   font-size: 0.9rem;
 }
 
+/* ======== SKELETON ======== */
+
 @keyframes shimmer {
   from {
     transform: translateX(-100%);
@@ -83,7 +85,7 @@
 
 .skeleton--heading {
   height: 1.4rem;
-  width: 70%;
+  width: 100%;
 }
 
 .skeleton--icon {

@@ -13,7 +13,7 @@ import SkeletonTestimonial from './SkeletonCard';
 import API, { BASE_URL } from '../../utils/api';
 
 const Testimonials = () => {
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading, error } = useQuery({
     queryKey: ['testimonials'],
     queryFn: async () => {
       const { data } = await axios.get(API.testimonials);
@@ -25,9 +25,7 @@ const Testimonials = () => {
       <h5>Review from Peers</h5>
       <h2>Recommendations</h2>
 
-      {isError && (
-        <h2 className="error">Something went wrong loading testimonials...</h2>
-      )}
+      {error && <h2>{error.message}</h2>}
 
       {isLoading ? (
         <div className="container testimonials__container">
