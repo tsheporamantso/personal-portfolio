@@ -3,7 +3,7 @@ import axios from 'axios';
 import API from '../../utils/api';
 
 export const getServicesData = createAsyncThunk(
-  'getServicesData',
+  'services/getServicesData',
   async (_, thunkAPI) => {
     try {
       const { data } = await axios.get(API.services);
