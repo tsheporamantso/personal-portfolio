@@ -23,7 +23,7 @@ const Portfolio = () => {
     isLoading,
     error,
   } = useQuery({
-    queryKey: ['projects'],
+    queryKey: ['projects', sortOrder],
     queryFn: async () => {
       const { data } = await axios.get(`${API.projects}?sort=${sortOrder}`);
       return data;

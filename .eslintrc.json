@@ -33,7 +33,9 @@
     ],
     "no-nested-ternary": "off",
     "arrow-body-style": "off",
-    "react/jsx-one-expression-per-line": "off"
+    "react/jsx-one-expression-per-line": "off",
+    "import/prefer-default-export": "off",
+    "react/no-array-index-key": "off"
   },
   "overrides": [
     {
