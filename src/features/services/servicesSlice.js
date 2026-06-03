@@ -2,14 +2,17 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import API from '../../utils/api';
 
-export const getServicesData = createAsyncThunk('getServicesData', async () => {
-  try {
-    const { data } = await axios.get(API.services);
-    return data;
-  } catch (error) {
-    throw new Error(error.message);
-  }
-});
+export const getServicesData = createAsyncThunk(
+  'getServicesData',
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await axios.get(API.services);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
 
 const initialState = {
   services: [],
@@ -31,7 +34,7 @@ const servicesSlice = createSlice({
       })
       .addCase(getServicesData.rejected, (state, action) => {
         state.isLoading = false;
-        state.isError = action.error.message;
+        state.isError = action.payload;
       });
   },
 });

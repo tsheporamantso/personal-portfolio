@@ -61,7 +61,6 @@ const Portfolio = () => {
               id="sort"
               value={sortOrder}
               onChange={(e) => setSortOrder(e.target.value)}
-              disabled={isLoading}
             >
               <option value="-title">Desc</option>
               <option value="title">Asc</option>
