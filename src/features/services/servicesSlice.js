@@ -9,7 +9,7 @@ export const getServicesData = createAsyncThunk(
       const { data } = await axios.get(API.services);
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.statusText);
     }
   },
 );
