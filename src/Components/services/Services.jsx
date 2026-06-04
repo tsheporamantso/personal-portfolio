@@ -30,7 +30,11 @@ const Services = () => {
   }
 
   if (isError) {
-    return <h2 className="error">Something went wrong loading services...</h2>;
+    return (
+      <h2 className="error">
+        {isError || 'Something went wrong loading services'}
+      </h2>
+    );
   }
 
   return (

@@ -3,13 +3,13 @@ import axios from 'axios';
 import API from '../../utils/api';
 
 export const getServicesData = createAsyncThunk(
-  'getServicesData',
+  'services/getServicesData',
   async (_, thunkAPI) => {
     try {
       const { data } = await axios.get(API.services);
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.statusText);
     }
   },
 );
