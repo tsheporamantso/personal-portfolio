@@ -41,6 +41,38 @@
 }
 
 /***
+*! ===================== SKELETON LOADING ========================
+***/
+
+@keyframes shimmer {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.skeleton__icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.skeleton__title {
+  height: 0.9rem;
+  width: 7rem;
+  margin-bottom: 0.4rem;
+}
+
+.skeleton__subtitle {
+  height: 0.75rem;
+  width: 5rem;
+}
+
+/***
 *! ===================== MEDIA QUERIES (MEDIUM DEVICES) ========================
 ***/
 
