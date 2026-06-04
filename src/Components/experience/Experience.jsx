@@ -1,117 +1,77 @@
+/* eslint-disable indent */
+/* eslint-disable react/jsx-indent */
 import React from 'react';
-import { BsPatchCheckFill } from 'react-icons/bs';
+
 import './experience.css';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import API from '../../utils/api';
+import SkillsCard from './SkillsCard';
+import SkillsCardSkeleton from './SkillsSkeletonCard';
 
-const Experience = () => (
-  <section id="experience">
-    <h5>Skills I have</h5>
-    <h2>My Experience</h2>
+const SKELETON_COUNT = 5;
+const skeletons = Array.from({ length: SKELETON_COUNT });
 
-    <div className="container experience__container">
-      <div className="experience__frontend">
-        <h3>Frontend Development</h3>
-        <div className="experience__content">
-          <article className="experience__details">
-            <BsPatchCheckFill />
-            <div>
-              <h4>HTML5</h4>
-              <small className="text-light">Experienced</small>
-            </div>
-          </article>
-          <article className="experience__details">
-            <BsPatchCheckFill />
-            <div>
-              <h4>CSS3</h4>
-              <small className="text-light">Intermediate</small>
-            </div>
-          </article>
-          <article className="experience__details">
-            <BsPatchCheckFill />
-            <div>
-              <h4>JavaScript</h4>
-              <small className="text-light">Experienced</small>
-            </div>
-          </article>
-          <article className="experience__details">
-            <BsPatchCheckFill />
-            <div>
-              <h4>Bootstrap</h4>
-              <small className="text-light">Intermediate</small>
-            </div>
-          </article>
-          <article className="experience__details">
-            <BsPatchCheckFill />
-            <div>
-              <h4>TailwindCSS</h4>
-              <small className="text-light">Intermediate</small>
-            </div>
-          </article>
-          <article className="experience__details">
-            <BsPatchCheckFill />
-            <div>
-              <h4>React/Redux</h4>
-              <small className="text-light">Experienced</small>
-            </div>
-          </article>
+const Experience = () => {
+  const {
+    data: experiences,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ['experiences'],
+    queryFn: async () => {
+      const { data } = await axios(API.experience);
+      return data.experiences;
+    },
+  });
+
+  const frontend = experiences?.filter(
+    (experience) => experience.category === 'frontend',
+  );
+  const backend = experiences?.filter(
+    (experience) => experience.category === 'backend',
+  );
+
+  return (
+    <section id="experience">
+      <h5>Skills I have</h5>
+      <h2>My Experience</h2>
+
+      {error && <h2>{error.message}</h2>}
+
+      <div className="container experience__container">
+        <div className="experience__frontend">
+          <h3>Frontend Development</h3>
+          <div className="experience__content">
+            {isLoading
+              ? skeletons.map((_, i) => <SkillsCardSkeleton key={i} />)
+              : frontend.map((item) => (
+                  <SkillsCard
+                    key={item._id}
+                    language={item.language}
+                    experience={item.experience}
+                  />
+                ))}
+          </div>
+        </div>
+
+        <div className="experience__backend">
+          <h3>Backend Development</h3>
+          <div className="experience__content">
+            {isLoading
+              ? skeletons.map((_, i) => <SkillsCardSkeleton key={i} />)
+              : backend.map((item) => (
+                  <SkillsCard
+                    key={item._id}
+                    language={item.language}
+                    experience={item.experience}
+                  />
+                ))}
+          </div>
         </div>
       </div>
-
-      <div className="experience__backend">
-        <h3>Backend Development</h3>
-        <div className="experience__content">
-          <article className="experience__details">
-            <BsPatchCheckFill />
-            <div>
-              <h4>Ruby</h4>
-              <small className="text-light">Experienced</small>
-            </div>
-          </article>
-          <article className="experience__details">
-            <BsPatchCheckFill />
-            <div>
-              <h4>Ruby on Rails</h4>
-              <small className="text-light">Experienced</small>
-            </div>
-          </article>
-          <article className="experience__details">
-            <BsPatchCheckFill />
-            <div>
-              <h4>PostgreSQL</h4>
-              <small className="text-light">Intermediate</small>
-            </div>
-          </article>
-          <article className="experience__details">
-            <BsPatchCheckFill />
-            <div>
-              <h4>CLI</h4>
-              <small className="text-light">Intermediate</small>
-            </div>
-          </article>
-          <article className="experience__details">
-            <BsPatchCheckFill />
-            <div>
-              <h4>NodeJS</h4>
-              <small className="text-light">Intermediate</small>
-            </div>
-          </article>
-          <article className="experience__details">
-            <BsPatchCheckFill />
-            <div>
-              <h4>ExpressJS</h4>
-              <small className="text-light">Intermediate</small>
-            </div>
-          </article>
-          <article className="experience__details">
-            <BsPatchCheckFill />
-            <div>
-              <h4>MongoDB</h4>
-              <small className="text-light">Intermediate</small>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Experience;
