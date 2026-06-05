@@ -32,6 +32,10 @@ const Experience = () => {
     (experience) => experience.category === 'backend',
   );
 
+  const tools = experiences?.filter(
+    (experience) => experience.category === 'tools',
+  );
+
   return (
     <section id="experience">
       <h5>Skills I have</h5>
@@ -61,6 +65,21 @@ const Experience = () => {
             {isLoading
               ? skeletons.map((_, i) => <SkillsCardSkeleton key={i} />)
               : backend.map((item) => (
+                  <SkillsCard
+                    key={item._id}
+                    language={item.language}
+                    experience={item.experience}
+                  />
+                ))}
+          </div>
+        </div>
+
+        <div className="experience__devtools">
+          <h3>Development Tools</h3>
+          <div className="experience__content">
+            {isLoading
+              ? skeletons.map((_, i) => <SkillsCardSkeleton key={i} />)
+              : tools.map((item) => (
                   <SkillsCard
                     key={item._id}
                     language={item.language}

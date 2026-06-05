@@ -40,7 +40,11 @@
   color: var(--color-primary);
 }
 
-/***
+.experience__devtools {
+  grid-column: 1 / -1;
+  width: 50%;
+  margin: 0 auto;
+} /***
 *! ===================== SKELETON LOADING ========================
 ***/
 
@@ -89,6 +93,11 @@
 
   .experience__content {
     padding: 1rem;
+  }
+
+  .experience__devtools {
+    width: 80%; /* matches the other cards at this breakpoint */
+    grid-column: auto;
   }
 }
 
