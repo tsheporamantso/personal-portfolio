@@ -1,4 +1,4 @@
-import Resume from '../../assets/Tshepo_Ramantso_FullStack_Developer.pdf';
+import Resume from '../../assets/Resume.pdf';
 
 const CTA = () => (
   <div className="cta">
