@@ -75,7 +75,7 @@ const Experience = () => {
         </div>
 
         <div className="experience__devtools">
-          <h3>Development Tools</h3>
+          <h3>Tools & Practices </h3>
           <div className="experience__content">
             {isLoading
               ? skeletons.map((_, i) => <SkillsCardSkeleton key={i} />)
