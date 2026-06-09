@@ -6,15 +6,30 @@ import API from '../../utils/api';
 import './contact.css';
 
 const Contact = () => {
+  /**
+   * Handle contact form submission and sends data to the API
+   * @param { React.FormEvent<HTMLFormElement> } e
+   * @returns {Promise<void>}
+   */
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const form = /** @type {HTMLFormElement} */ (e.target);
+
+    /** @type {{ name: string, email: string, message: string }} */
     const formData = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      message: e.target.message.value,
+      name: /** @type {HTMLInputElement} */ (form.elements.namedItem('name'))
+        .value,
+      email: /** @type {HTMLInputElement} */ (form.elements.namedItem('email'))
+        .value,
+      message: /** @type {HTMLInputElement} */ (
+        form.elements.namedItem('message')
+      ).value,
     };
 
+    /**
+     * @type {string | number}
+     */
     const toastId = toast.loading('Sending message...');
 
     try {
@@ -35,7 +50,7 @@ const Contact = () => {
           autoClose: 3000,
         });
 
-        e.target.reset();
+        form.reset();
       } else {
         toast.update(toastId, {
           render: data.msg,
