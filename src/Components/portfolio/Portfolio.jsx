@@ -9,6 +9,13 @@ import techIcons from '../../utils/techIcons';
 import API, { BASE_URL } from '../../utils/api';
 import SkeletonCard from './PortfolioSkeletonCard';
 
+/**
+ * Truncate the length of the string
+ * @param {string} text
+ * @param {number} maxLength
+ * @returns {string} length formatted to 70 characters
+ */
+
 const truncateText = (text, maxLength) => {
   if (text.length <= maxLength) return text;
   return `${text.slice(0, maxLength)}...`;
