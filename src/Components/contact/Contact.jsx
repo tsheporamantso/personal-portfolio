@@ -16,13 +16,12 @@ const Contact = () => {
 
     const form = /** @type {HTMLFormElement} */ (e.target);
 
-    /** @type {{ name: string, email: string, message: string }} */
     const formData = {
       name: /** @type {HTMLInputElement} */ (form.elements.namedItem('name'))
         .value,
       email: /** @type {HTMLInputElement} */ (form.elements.namedItem('email'))
         .value,
-      message: /** @type {HTMLInputElement} */ (
+      message: /** @type {HTMLTextAreaElement} */ (
         form.elements.namedItem('message')
       ).value,
     };
