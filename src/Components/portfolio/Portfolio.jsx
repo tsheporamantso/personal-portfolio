@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable react/no-array-index-key */
 import { useState } from 'react';
 import { IoCloseSharp } from 'react-icons/io5';
 import './portfolio.css';
