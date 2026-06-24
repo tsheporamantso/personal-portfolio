@@ -25,6 +25,7 @@ import {
   SiSwagger,
   SiCommitlint,
   SiRender,
+  SiTestinglibrary,
 } from 'react-icons/si';
 
 const RoR = 'Ruby on Rails';
@@ -54,6 +55,7 @@ const techIcons = {
   Render: <SiRender />,
   Stripe: <FaStripe />,
   Docker: <FaDocker />,
+  RTL: <SiTestinglibrary />,
 };
 
 export default techIcons;
