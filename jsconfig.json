@@ -5,7 +5,8 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "types": ["@testing-library/jest-dom"]
   },
   "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.d.ts"],
   "exclude": ["node_modules"]
