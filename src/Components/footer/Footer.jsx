@@ -33,7 +33,7 @@ const Footer = () => (
       </li>
     </ul>
 
-    <div className="footer__socials">
+    <div className="footer__socials" data-testid="footer-socials">
       <a href="https://facebook.com/" target="_blank" rel="noreferrer">
         <FaFacebookF />
       </a>
