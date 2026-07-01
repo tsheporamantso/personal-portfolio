@@ -38,4 +38,32 @@ describe('Footer component', () => {
 
     expect(screen.getByText(/gladwin tshepo ramantso/i)).toBeInTheDocument();
   });
+  describe('snapshots', () => {
+    test('footer logo should match snapshot', () => {
+      render(<Footer />);
+      expect(screen.getByRole('link', { name: /gladwin/i })).toMatchSnapshot();
+    });
+
+    test('list items should match snapshot', () => {
+      render(<Footer />);
+      const links = screen.getAllByRole('listitem');
+      expect(links).toMatchSnapshot();
+    });
+
+    test('social links should match snapshot', () => {
+      render(<Footer />);
+
+      const socialContainer = screen.getByTestId('footer-socials');
+      const socialLinks = within(socialContainer).getAllByRole('link');
+
+      expect(socialLinks).toMatchSnapshot();
+    });
+
+    test('copyright text should match snapshot', () => {
+      render(<Footer />);
+
+      const copyrightText = screen.getByText(/gladwin tshepo ramantso/i);
+      expect(copyrightText).toMatchSnapshot();
+    });
+  });
 });
