@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Call To Action buttons snapshots should render navigation links snapshot 1`] = `
+Array [
+  <a
+    class="btn"
+    download=""
+    href="Resume.pdf"
+  >
+    Download Resume
+  </a>,
+  <a
+    class="btn btn-primary"
+    href="#contact"
+  >
+    Let's Talk
+  </a>,
+]
+`;
