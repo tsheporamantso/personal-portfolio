@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component snapshots should render headings snapshot 1`] = `
+Array [
+  <h5>
+    Hello I'm
+  </h5>,
+  <h1>
+    Gladwin Tshepo Ramantso
+  </h1>,
+  <h5
+    class="text-light"
+  >
+    FullStack Developer
+  </h5>,
+]
+`;
+
+exports[`Header component snapshots should render image snapshot 1`] = `
+<img
+  alt="me"
+  src="headshot.png"
+/>
+`;
+
+exports[`Header component snapshots should render nav link snapshot correctly 1`] = `
+<a
+  class="scroll__down"
+  href="#contact"
+>
+  Scroll Down
+</a>
+`;
