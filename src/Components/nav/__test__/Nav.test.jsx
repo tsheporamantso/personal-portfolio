@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router-dom';
 import Nav from '../Nav';
 
 const renderNav = () => {
-  render(
+  return render(
     <MemoryRouter future={{ v7_relativeSplatPath: true }}>
       <Nav />
     </MemoryRouter>,
@@ -33,7 +33,11 @@ describe('Navbar component', () => {
 
     expect(link).toBeInTheDocument();
     expect(link).toHaveAttribute('href', href);
-
-    expect(link).toMatchSnapshot();
+  });
+  describe('snapshot', () => {
+    test('should render snapshot', () => {
+      const { container } = renderNav();
+      expect(container).toMatchSnapshot();
+    });
   });
 });
