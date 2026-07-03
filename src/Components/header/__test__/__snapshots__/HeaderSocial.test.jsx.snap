@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header Socials Component Header Socials Snapshots should render nav links snapshot 1`] = `
+exports[`Header Socials Component snapshot should render socials snapshot 1`] = `
 Array [
   <a
     href="https://linkedin.com/in/gladwinramantso"

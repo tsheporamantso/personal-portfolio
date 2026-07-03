@@ -2,27 +2,34 @@ import { screen, render } from '@testing-library/react';
 import HeaderSocials from '../HeaderSocials';
 
 describe('Header Socials Component', () => {
-  beforeEach(() => {
+  test('should render social links with correct hrefs', () => {
     render(<HeaderSocials />);
+
+    const socialLinks = screen.getAllByRole('link', { name: '' });
+
+    const linkedin = socialLinks.find((link) => {
+      return link.getAttribute('href')?.includes('linkedin');
+    });
+    const github = socialLinks.find((link) => {
+      return link.getAttribute('href')?.includes('github');
+    });
+    const wellfound = socialLinks.find((link) => {
+      return link.getAttribute('href')?.includes('wellfound');
+    });
+
+    expect(linkedin).toBeInTheDocument();
+    expect(github).toBeInTheDocument();
+    expect(wellfound).toBeInTheDocument();
+
+    [linkedin, github, wellfound].forEach((link) => {
+      expect(link).toHaveAttribute('target', '_blank');
+      expect(link).toHaveAttribute('rel', 'noreferrer');
+    });
   });
-  test('should render social media links', () => {
-    const links = screen.getAllByRole('link');
-    expect(links).toHaveLength(3);
-    expect(links[0]).toHaveAttribute(
-      'href',
-      'https://linkedin.com/in/gladwinramantso',
-    );
-    expect(links[1]).toHaveAttribute(
-      'href',
-      'https://github.com/tsheporamantso',
-    );
-    expect(links[2]).toHaveAttribute(
-      'href',
-      'https://wellfound.com/u/gladwin-tshepo-ramantso',
-    );
-  });
-  describe('Header Socials Snapshots', () => {
-    test('should render nav links snapshot', () => {
+  describe('snapshot', () => {
+    test('should render socials snapshot', () => {
+      render(<HeaderSocials />);
+
       expect(screen.getAllByRole('link')).toMatchSnapshot();
     });
   });
