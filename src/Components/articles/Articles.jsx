@@ -9,7 +9,7 @@ const Articles = () => {
 
       <div className="container articles__container">
         <article className="article__card">
-          <div className="article__content">
+          <div className="article__content" data-testid="paragraphs">
             <h3>Imposter Syndrome as a Developer</h3>
             <p className="article__meta">
               Written in 2023 • Personal Growth • Career Transition
