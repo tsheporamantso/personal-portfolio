@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Articles component snapshots should match component snapshot 1`] = `
+<div>
+  <section
+    id="articles"
+  >
+    <h5>
+      Beyond Code
+    </h5>
+    <h2>
+      Articles & Thoughts
+    </h2>
+    <div
+      class="container articles__container"
+    >
+      <article
+        class="article__card"
+      >
+        <div
+          class="article__content"
+          data-testid="paragraphs"
+        >
+          <h3>
+            Imposter Syndrome as a Developer
+          </h3>
+          <p
+            class="article__meta"
+          >
+            Written in 2023 • Personal Growth • Career Transition
+          </p>
+          <p
+            class="article__description"
+          >
+            A reflection on transitioning from Accounting to Software Development, navigating self-doubt, and embracing a growth mindset. This piece explores how failure, collaboration, and persistence shape the journey of becoming a developer.
+          </p>
+          <p
+            class="article__reflection"
+          >
+            <strong>
+              Reflection:
+            </strong>
+             Looking back, this was written at a time when everything felt uncertain. Today, I see those moments as a necessary stepping stone that strengthened my confidence and resilience as a developer.
+          </p>
+          <a
+            class="btn btn-primary"
+            href="https://medium.com/@tgramantso/dealing-with-imposter-syndrome-4310ecb3deea"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Read Full Article
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+</div>
+`;

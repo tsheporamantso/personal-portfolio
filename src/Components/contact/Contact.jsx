@@ -14,7 +14,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const form = /** @type {HTMLFormElement} */ (e.target);
+    const form = /** @type {HTMLFormElement} */ (e.currentTarget);
 
     const formData = {
       name: /** @type {HTMLInputElement} */ (form.elements.namedItem('name'))
@@ -74,7 +74,7 @@ const Contact = () => {
       <h2>Contact Me</h2>
 
       <div className="container contact__container">
-        <div className="contact__options">
+        <div className="contact__options" data-testid="articles">
           <article className="contact__option">
             <CiMail />
             <h4>Email</h4>
@@ -104,7 +104,7 @@ const Contact = () => {
             <h4>WhatsApp</h4>
             <h5>+27651443709</h5>
             <a
-              href="https://api.whatsapp.com/send?phone+27651443709"
+              href="https://api.whatsapp.com/send?phone=27651443709"
               target="_blank"
               rel="noreferrer"
             >
