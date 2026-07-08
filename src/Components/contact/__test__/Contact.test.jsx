@@ -54,7 +54,7 @@ describe('Contact Component', () => {
     );
     expect(links[2]).toHaveAttribute(
       'href',
-      'https://api.whatsapp.com/send?phone+27651443709',
+      'https://api.whatsapp.com/send?phone=27651443709',
     );
 
     links.forEach((link) => {
