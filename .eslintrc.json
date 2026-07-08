@@ -43,7 +43,8 @@
         "assert": "htmlFor",
         "depth": 3
       }
-    ]
+    ],
+    "no-undef": "off"
   },
   "overrides": [
     {
