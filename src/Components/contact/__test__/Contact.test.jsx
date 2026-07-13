@@ -92,6 +92,7 @@ describe('Contact Component', () => {
     await user.click(screen.getByRole('button', { name: /send message/i }));
 
     expect(toast.loading).toHaveBeenCalledWith('Sending message...');
+    expect(toast.loading).toHaveBeenCalledTimes(1);
   });
 
   test('should call the API with the correct payload on submit', async () => {
