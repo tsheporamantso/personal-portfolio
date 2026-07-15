@@ -49,7 +49,7 @@ const Experience = () => {
           <div className="experience__content">
             {isLoading
               ? skeletons.map((_, i) => <SkillsCardSkeleton key={i} />)
-              : frontend.map((item) => (
+              : frontend?.map((item) => (
                   <SkillsCard
                     key={item._id}
                     language={item.language}
@@ -64,7 +64,7 @@ const Experience = () => {
           <div className="experience__content">
             {isLoading
               ? skeletons.map((_, i) => <SkillsCardSkeleton key={i} />)
-              : backend.map((item) => (
+              : backend?.map((item) => (
                   <SkillsCard
                     key={item._id}
                     language={item.language}
@@ -79,7 +79,7 @@ const Experience = () => {
           <div className="experience__content">
             {isLoading
               ? skeletons.map((_, i) => <SkillsCardSkeleton key={i} />)
-              : tools.map((item) => (
+              : tools?.map((item) => (
                   <SkillsCard
                     key={item._id}
                     language={item.language}
