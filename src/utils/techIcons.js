@@ -27,6 +27,7 @@ import {
   SiRender,
   SiTestinglibrary,
 } from 'react-icons/si';
+import { TbBrandNextjs } from 'react-icons/tb';
 
 const RoR = 'Ruby on Rails';
 
@@ -56,6 +57,7 @@ const techIcons = {
   Stripe: <FaStripe />,
   Docker: <FaDocker />,
   RTL: <SiTestinglibrary />,
+  Nextjs: <TbBrandNextjs />,
 };
 
 export default techIcons;
