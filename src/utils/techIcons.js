@@ -26,8 +26,10 @@ import {
   SiCommitlint,
   SiRender,
   SiTestinglibrary,
+  SiPrisma,
 } from 'react-icons/si';
 import { TbBrandNextjs } from 'react-icons/tb';
+import { RiSupabaseFill } from 'react-icons/ri';
 
 const RoR = 'Ruby on Rails';
 
@@ -58,6 +60,8 @@ const techIcons = {
   Docker: <FaDocker />,
   RTL: <SiTestinglibrary />,
   Nextjs: <TbBrandNextjs />,
+  Prisma: <SiPrisma />,
+  Supabase: <RiSupabaseFill />,
 };
 
 export default techIcons;
