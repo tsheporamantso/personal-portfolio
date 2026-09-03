@@ -1,0 +1,278 @@
+.about__container {
+  display: grid;
+  grid-template-columns: 35% 50%;
+  gap: 15%;
+}
+
+.about__me {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 2rem;
+  background:
+    linear-gradient(
+      45deg,
+      transparent,
+      var(--color-primary),
+      transparent
+    );
+}
+
+.about__me-image {
+  border-radius: 2rem;
+  overflow: hidden;
+  transform: rotate(10deg);
+  transition: var(--transition);
+}
+
+.about__me-image:hover {
+  transform: rotate(0deg);
+}
+
+.about__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.about__card {
+  background: var(--color-bg-variant);
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.about__card:hover {
+  background: transparent;
+  border-color: var(--color-primary-variant);
+  cursor: default;
+}
+
+.about__icon {
+  color: var(--color-primary);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.about__card h5 {
+  font-size: 0.95rem;
+}
+
+.about__card small {
+  font-size: 0.7rem;
+  color: var(--color-light);
+}
+
+.about__content p {
+  margin: 2rem 0 2.6rem;
+  color: var(--color-light);
+}
+
+/* ===== SPEECH CONTROLS ===== */
+.speech-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+.voice-btn,
+.stop-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.3rem;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid transparent;
+  letter-spacing: 0.03em;
+}
+
+/* Primary action — matches your btn-primary feel */
+.voice-btn {
+  background: var(--color-primary);
+  color: var(--color-bg);
+  border-color: var(--color-primary);
+}
+
+.voice-btn:hover {
+  background: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* Secondary/destructive — ghost style with a red tint */
+.stop-btn {
+  background: transparent;
+  color: var(--color-light);
+  border-color: var(--color-bg-variant);
+}
+
+.stop-btn:hover {
+  border-color: #e06c75;
+  color: #e06c75;
+  background: rgba(224, 108, 117, 0.08);
+}
+
+/* Disabled state for stop when nothing is playing */
+.stop-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  border-color: transparent;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .speech-controls {
+    justify-content: center;
+  }
+}
+
+/* ── Work Experience Card ── */
+.work__card {
+  background: var(--color-bg-variant);
+  border: 1px solid var(--color-primary-variant);
+  border-radius: 1rem;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.work__card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+.work__card-header h5 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-light);
+}
+
+.work__card-icon {
+  font-size: 1.1rem;
+}
+
+.work__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.work__item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.work__item-logo {
+  font-size: 1.6rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  border-radius: 50%;
+  border: 1px solid var(--color-primary-variant);
+  flex-shrink: 0;
+}
+
+.work__item-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.work__item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.work__item-info strong {
+  font-size: 0.9rem;
+  color: var(--color-white);
+}
+
+.work__item-role {
+  font-size: 0.78rem;
+  color: var(--color-light);
+}
+
+.work__item-duration {
+  font-size: 0.75rem;
+  color: var(--color-light);
+  white-space: nowrap;
+}
+
+/* ── Projects stat row ── */
+.about__stat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-light);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.about__stat .about__icon {
+  color: var(--color-primary);
+  font-size: 1.1rem;
+}
+
+/***
+*! ===================== MEDIA QUERIES (MEDIUM DEVICES) ========================
+***/
+
+@media screen and (max-width: 1024px) {
+  .about__container {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .about__me {
+    width: 50%;
+    margin: 2rem auto 4rem;
+  }
+
+  .about__content p {
+    margin: 1rem 0 1.5rem;
+  }
+}
+
+/***
+*! ===================== MEDIA QUERIES (SMALL  DEVICES) ========================
+***/
+
+@media screen and (max-width: 600px) {
+  .about__me {
+    width: 65%;
+    margin: 0 auto 3rem;
+  }
+
+  .about__cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .about__content {
+    text-align: center;
+  }
+
+  .about__content p {
+    margin: 1.5rem 0;
+  }
+}
